@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/USIP.txt@proxyip.amclubs.kozow.com
-https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/SGIP.txt@proxyip.amclubs.kozow.com
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/KRIP.txt@129.151.225.228
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/SGIP.txt@47.74.155.26
