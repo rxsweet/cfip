@@ -2,7 +2,10 @@ import re
 import requests
 import json
 
+#保存路径
+SAVE_PATH = './ip/'
 #https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/HK.txt
+"""
 apiList={
   'HK':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/HK.txt',
   'TW':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/TW.txt',
@@ -20,7 +23,7 @@ apiList={
   'KR':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/KR.txt',
   'US':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/US.txt',
   }
-"""
+
 def saveIP(configList):#整理保存
 
     for key,value in configList.items():
@@ -32,7 +35,7 @@ def saveIP(configList):#整理保存
         
         #保存
         try:
-            with open(f'./ips/{key}.txt', 'w', encoding='utf-8') as f:
+            with open(f'{SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                 f.write(new_ip_list)
             print(f'save {key}.txt 完成！')
         except requests.exceptions.RequestException as e:  
