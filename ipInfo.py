@@ -2,7 +2,22 @@ import re
 import requests
 import json
 
-def get_address(ip):
+SOURCE = 'ip.txt'
+SAVE_PATH = './ip/area/'
+
+要筛选哪个地区直接在此添加
+IP_YAML = {
+    'ALLIP':[],
+    'HK':[],
+    'TW':[],
+    'JP':[],
+    'SG':[],
+    'KR':[],
+    'US':[],
+    'other':[],
+}
+
+def get_address(ip):#得到IP归属地
     tap_url = f'https://ip125.com/api/{ip}?lang=zh-CN'
     head = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0',
@@ -39,7 +54,7 @@ def list_rm(urlList):#列表去重
     
 if "__name__==__main__":#主程序开始
 
-    with open('ip.txt', 'r', encoding='utf-8') as f:
+    with open(SOURCE, 'r', encoding='utf-8') as f:
         ip_all = f.read()
     ip_list = re.split(r'\n+',ip_all)
     #去重
@@ -49,80 +64,37 @@ if "__name__==__main__":#主程序开始
     #ip_rm = '\n'.join(ip_list)
     #with open(f'./ip/ip_rm.txt', 'w', encoding='utf-8') as f:
         #f.write(ip_rm)
-    
-    
-    ALLIP = []
-    HKIP = []
-    TWIP = []
-    JPIP = []
-    SGIP = []
-    KRIP = []
-    USIP = []
-    otherIP= []
-    for i in range(len(ip_list)):
+
+    #查询IP区域
+    for ip in ip_list:
         try:
-            if ip_list[i] == '':
+            if ip == '':#如果是空跳过
                 continue
-            ipaddr = ip_list[i].split("#")[0]
+            ipaddr = ip.split("#")[0]
             if ':' in ipaddr:
-                ipaddr = ip_list[i].split(":")[0]
+                ipaddr = ip.split(":")[0]
             #print(ipaddr)
             country_info = get_address(ipaddr)
-            ip_list[i] = ip_list[i] + '#' + country_info
-            
-            if country_info == 'HK':
-                HKIP.append(ip_list[i])
-            elif country_info == 'TW':
-                TWIP.append(ip_list[i])
-            elif country_info == 'JP':
-                JPIP.append(ip_list[i])
-            elif country_info == 'SG':
-                SGIP.append(ip_list[i])
-            elif country_info == 'KR':
-                KRIP.append(ip_list[i])
-            elif country_info == 'US':
-                USIP.append(ip_list[i])
+            if country_info in IP_YAML:
+                ipinfo = ip + '#' + country_info
+                IP_YAML[country_info].append(ipinfo)
             else:
-                ip_list[i] = ip_list[i] + '_other'
-                otherIP.append(ip_list[i])
-            #ALLIP.append(ip_list[i])#需要按国家排序的话,#号掉这个开启下面的"""
-            print(ip_list[i])
+                ipinfo = ip + '#' + country_info + '_other'
+                IP_YAML['other'].append(ipinfo)
+            
+            IP_YAML['ALLIP'].append(ipinfo)#需要按国家排序的话,使用下面的for
+            print(ipinfo)
         except Exception as e:#万能异常
-            print(f'{ip_list[i]}出现错误,错误内容如下：\n{e}')
+            print(f'{ip}出现错误,错误内容如下：\n{e}')
             pass
-
-    #"""
-    #按地区顺序排列
-    ALLIP = []
-    ALLIP.extend(HKIP)
-    ALLIP.extend(TWIP)
-    ALLIP.extend(JPIP)
-    ALLIP.extend(SGIP)
-    ALLIP.extend(KRIP)
-    ALLIP.extend(USIP)
-    ALLIP.extend(otherIP)
-    #"""
-    
-    ALLIP = '\n'.join(ALLIP)
-    with open(f'./ip/ALLIP.txt', 'w', encoding='utf-8') as f:
-        f.write(ALLIP)
-    #按区域保存
-    HKIP = '\n'.join(HKIP)
-    with open(f'./ip/HKIP.txt', 'w', encoding='utf-8') as f:
-        f.write(HKIP)
-    TWIP = '\n'.join(TWIP)
-    with open(f'./ip/TWIP.txt', 'w', encoding='utf-8') as f:
-        f.write(TWIP)
-    JPIP = '\n'.join(JPIP)
-    with open(f'./ip/JPIP.txt', 'w', encoding='utf-8') as f:
-        f.write(JPIP)
-    SGIP = '\n'.join(SGIP)
-    with open(f'./ip/SGIP.txt', 'w', encoding='utf-8') as f:
-        f.write(SGIP)
-    KRIP = '\n'.join(KRIP)
-    with open(f'./ip/KRIP.txt', 'w', encoding='utf-8') as f:
-        f.write(KRIP)
-    USIP = '\n'.join(USIP)
-    with open(f'./ip/USIP.txt', 'w', encoding='utf-8') as f:
-        f.write(USIP)
-
+    #按地区排序
+    """
+    for key,value in IP_YAML.items():
+        if key != 'ALLIP':
+            IP_YAML['ALLIP'].extend(value)
+    """
+    #保存IP
+    for key,value in IP_YAML.items():
+        value = '\n'.join(value)
+        with open(f'{SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
+            f.write(value)
