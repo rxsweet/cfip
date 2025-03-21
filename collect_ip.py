@@ -25,24 +25,28 @@ apiList={
   }
 
 def saveIP(configList):#整理保存
-
+    ALLIP = []
     for key,value in configList.items():
-        #将IP和端口中间的空格替换成‘:’,方便使用
-        value = re.sub(' ',':',value)
-        #添加区域标注
-        ip_list = re.split(r'\n+',value)
-        new_ip_list = f'#{key}\n'.join(ip_list)#加注释 #HK等
-        
-        #保存
+        #保存区域
         try:
+            #将IP和端口中间的空格替换成‘:’,方便使用
+            value = re.sub(' ',':',value)
+            #添加区域标注
+            ip_list = re.split(r'\n+',value)
+            new_ip_list = f'#{key}\n'.join(ip_list)#加注释 #HK等
             with open(f'{SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                 f.write(new_ip_list)
             print(f'save {key}.txt 完成！')
+            ALLIP.append(new_ip_list)
         except requests.exceptions.RequestException as e:  
             #print(e)
             print(F'获取{key}写入错误!')
             pass
-
+    #将IP合并保存
+    ALLIP = ''.join(ALLIP)
+    with open(f'{SAVE_PATH}ALLIP.txt', 'w', encoding='utf-8') as f:
+        f.write(ALLIP)
+    print(f'save ALLIP.txt 完成！')
     
 def getContent(url):#获取网站的内容，将获取的内容返回
     headers={
