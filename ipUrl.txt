@@ -1,3 +1,4 @@
 https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/checked/HK.txt@8.210.29.68
 https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/checked/HK.txt@8.210.29.68
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/checked/HK.txt@8.209.45.211
 
