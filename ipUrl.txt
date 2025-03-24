@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/ipHK.txt@47.242.11.244
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/HK.txt@47.242.11.244
 
