@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/ip/checked/HK.txt@proxyip.amclubs.kozow.com
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/HK.txt@47.242.11.244
 
