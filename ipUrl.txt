@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@cdn.xn--b6gac.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@cdn-all.xn--b6gac.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@edgetunnel.anycast.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@bestproxy.onecf.eu.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@Who-is-your-daddy.It-s-me.ddnsgeek.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@Who-is-your-daddy.It-s-me.giize.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@Who-is-your-daddy.It-s-me.kozow.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@Who-is-your-daddy.It-s-me.ooguy.com:443
