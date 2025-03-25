@@ -1,1 +1,4 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@asdasdzxc.kro.kr:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@Who-is-your-daddy.It-s-me.ddnsgeek.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@Who-is-your-daddy.It-s-me.giize.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@Who-is-your-daddy.It-s-me.kozow.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@Who-is-your-daddy.It-s-me.ooguy.com:443
