@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@1c5ee7c5-1340-46dc-81e3-5f900b498dc9.ooguy.com:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@a01904b2-5c88-4d40-a246-e37d43aee11c.giize.com:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@cb3c61c6-bbd2-4a54-8f6b-e2bba57998ca.accesscam.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@ff1a88de-43d7-4f95-a8c6-b3ba6b2145b2.casacam.net:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@cdn-b100.xn--b6gac.eu.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@bestproxy.030101.xyz:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@proxyip.amclubs.camdvr.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@proxyip.amclubs.kozow.com:443
