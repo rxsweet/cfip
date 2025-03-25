@@ -1,4 +1,1 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@cdn-all.xn--b6gac.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@edgetunnel.anycast.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@cdn.anycast.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@bestproxy.onecf.eu.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@cdn.xn--b6gac.eu.org:443
