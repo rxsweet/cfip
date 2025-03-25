@@ -1,1 +1,4 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@cdn.xn--b6gac.eu.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@cdnhk.huabuxiang.vip:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@ali.055500.xyz:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@yx.kkkong.pp.ua:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@cdn.shanggan.pp.ua:443
