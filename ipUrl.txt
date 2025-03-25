@@ -1,2 +1,5 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/HK.txt@47.242.11.244
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@proxyip.amclubs.kozow.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@141.147.163.68:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@47.242.11.244:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@168.138.165.174:443
 
