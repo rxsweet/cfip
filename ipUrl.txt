@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@a17cabb5-3f13-4056-b0ce-476143491d4b.blackbeautifulman.cloudns.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@15212712-20f5-40a5-b9aa-8363e0130171.ee137666-1e0a-46db-bbd6-cc18f9841234.accesscam.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@30388d70-6f5c-4d7c-8daa-9d3df7c5c526.9150e878-8296-4798-a172-c3fe66b8dee5.ddnsgeek.com:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@159d770e-fd74-4069-a73b-fe6ececa7951.f82aee4c-752c-4b0c-9793-380d4d76435c.ddnsgeek.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@1c5ee7c5-1340-46dc-81e3-5f900b498dc9.ooguy.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@a01904b2-5c88-4d40-a246-e37d43aee11c.giize.com:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@cb3c61c6-bbd2-4a54-8f6b-e2bba57998ca.accesscam.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@ff1a88de-43d7-4f95-a8c6-b3ba6b2145b2.casacam.net:443
