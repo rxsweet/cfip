@@ -1,1 +1,7 @@
-proxyip.amclubs.kozow.com
+cdn.xn--b6gac.eu.org:443
+cdn-all.xn--b6gac.eu.org:443
+cdn-b100.xn--b6gac.eu.org:443
+bestproxy.030101.xyz:443
+bestproxy.onecf.eu.org:443
+proxyip.amclubs.camdvr.org:443
+proxyip.amclubs.kozow.com:443
