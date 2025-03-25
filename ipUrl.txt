@@ -1,5 +1,4 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/HK.txt@bestproxy.030101.xyz:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/JP.txt@cdn.xn--b6gac.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/SG.txt@bestproxy.onecf.eu.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/KR.txt@proxyip.amclubs.camdvr.org:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/checked/US.txt@ali.055500.xyz:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipHK.txt@bestproxy.030101.xyz:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipJP.txt@cdn.xn--b6gac.eu.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipKR.txt@bestproxy.onecf.eu.org:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ipSG.txt@proxyip.amclubs.camdvr.org:443
