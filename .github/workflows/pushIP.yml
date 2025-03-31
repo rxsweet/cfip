@@ -1,0 +1,24 @@
+name: pushIP
+
+# 触发条件
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ipALL.txt
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Pushes
+      uses: rxsweet/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{secrets.ACTIONS_USE}}
+      with:
+        source_file: 'ipALL.txt'
+        destination_repo: 'rxsweet/CM_Vmess'
+        user_email: 'actions@github.com'
+        user_name: 'GitHub Actions'
+        commit_message: 'ip update'
