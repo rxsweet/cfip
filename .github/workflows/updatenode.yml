@@ -8,6 +8,9 @@ on:
     paths:
       - ipUrl.txt
   workflow_dispatch:
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.v1 }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,14 +19,14 @@ jobs:
       uses: actions/checkout@v4
     - name: 执行任务 -update IP and node
       run: |
-        curl -o sub/xxx.txt ${{ env.v1 }}
+        curl -o xxx.txt '${{ vars.v1 }}'
 
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{secrets.ACTIONS_USE}}
       with:
-        source_file: 'sub/'
+        source_file: 'xxx.txt'
         destination_repo: 'rxsweet/proxies'
         user_email: 'actions@github.com'
         user_name: 'GitHub Actions'
