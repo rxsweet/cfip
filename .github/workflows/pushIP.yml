@@ -17,7 +17,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{secrets.ACTIONS_USE}}
       with:
-        source_file: 'ipALL.txt'
+        source_file: '/ipALL.txt'
         destination_repo: 'rxsweet/CM_Vmess'
         user_email: 'actions@github.com'
         user_name: 'GitHub Actions'
