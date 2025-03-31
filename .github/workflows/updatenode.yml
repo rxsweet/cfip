@@ -19,6 +19,8 @@ jobs:
       uses: actions/checkout@v4
     - name: 执行任务 -update IP and node
       run: |
+        md sub
+        cd ./sub
         curl -o /sub/xxx.txt '${{ vars.v1 }}'
 
     - name: Pushes
