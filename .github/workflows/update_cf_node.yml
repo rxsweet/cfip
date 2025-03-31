@@ -17,10 +17,13 @@ jobs:
     steps:
     - name: 迁出代码
       uses: actions/checkout@v4
+    - name: 设置时区
+      run: sudo timedatectl set-timezone 'Asia/Shanghai' 
     - name: 执行任务 -update node
       run: |
         mkdir sub
         cd ./sub
+        sleep 15
         curl -o cf.txt '${{ vars.VMESS_TXT }}'
         curl -o cf.yaml '${{ vars.VMESS_YAML }}'
         curl -o cf1.txt '${{ vars.TROJAN_TXT }}'
@@ -34,3 +37,4 @@ jobs:
         destination_repo: 'rxsweet/proxies'
         user_email: 'actions@github.com'
         user_name: 'GitHub Actions'
+        commit_message: 'cf node update'
