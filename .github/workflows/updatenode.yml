@@ -21,7 +21,7 @@ jobs:
       run: |
         mkdir sub
         cd ./sub
-        curl -o /sub/xxx.txt '${{ vars.v1 }}'
+        curl -o xxx.txt '${{ vars.v1 }}'
 
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
