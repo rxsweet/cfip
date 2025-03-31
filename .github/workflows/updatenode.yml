@@ -19,14 +19,14 @@ jobs:
       uses: actions/checkout@v4
     - name: 执行任务 -update IP and node
       run: |
-        curl -o xxx.txt '${{ vars.v1 }}'
+        curl -o ./sub/xxx.txt '${{ vars.v1 }}'
 
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{secrets.ACTIONS_USE}}
       with:
-        source_file: 'xxx.txt'
+        source_file: 'sub/'
         destination_repo: 'rxsweet/proxies'
         user_email: 'actions@github.com'
         user_name: 'GitHub Actions'
