@@ -12,6 +12,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: 迁出代码
+      uses: actions/checkout@v4
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
       env:
