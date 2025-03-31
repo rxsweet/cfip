@@ -8,9 +8,7 @@ on:
     paths:
       - ipUrl.txt
   workflow_dispatch:
-env:
-  # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.v1 }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
