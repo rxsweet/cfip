@@ -27,7 +27,7 @@ jobs:
         run: pip install requests
       - name: 执行任务 -update IP
         run: |
-          python ./collect_ip.py
+          python ./py/ip_collect.py
       - name: Commit
         id: commit
         continue-on-error: true
