@@ -1,0 +1,36 @@
+name: update_cf_node
+
+# 触发条件
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ipUrl.txt
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["pushIP"]
+    types: [completed]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 迁出代码
+      uses: actions/checkout@v4
+    - name: 执行任务 -update node
+      run: |
+        mkdir sub
+        cd ./sub
+        curl -o cf.txt '${{ vars.VMESS_TXT }}'
+        curl -o cf.yaml '${{ vars.VMESS_YAML }}'
+        curl -o cf1.txt '${{ vars.TROJAN_TXT }}'
+        wget -q -O cf1.yaml '${{ vars.TROJAN_YAML }}'
+    - name: Pushes
+      uses: rxsweet/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{secrets.ACTIONS_USE}}
+      with:
+        source_file: 'sub/'
+        destination_repo: 'rxsweet/proxies'
+        user_email: 'actions@github.com'
+        user_name: 'GitHub Actions'
