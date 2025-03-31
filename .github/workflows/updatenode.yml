@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v4
     - name: 执行任务 -update IP and node
       run: |
-        curl -o sub/xxx.txt $env.v1
+        curl -o sub/xxx.txt ${{ env.v1 }}
 
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
