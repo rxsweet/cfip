@@ -26,6 +26,7 @@ apiList={
 
 def saveIP(configList):#整理保存
     ALLIP = []
+    port443 = []
     for key,value in configList.items():
         #保存区域
         try:
@@ -47,6 +48,20 @@ def saveIP(configList):#整理保存
     with open(f'{SAVE_PATH}ALLIP.txt', 'w', encoding='utf-8') as f:
         f.write(ALLIP)
     print(f'save ALLIP.txt 完成！')
+    
+    ALLIP = re.split(r'\n+',ALLIP)
+    #筛选443端口IP
+    for ip in ALLIP:
+        if ':443' in ip and '#US' not in ip:
+            #print(ip + 'haha' + '\n')
+            ip = ip.split(":")[0]
+            port443.append(ip)
+    #保存443端口IP
+    port443 = '\n'.join(port443)
+    with open(f'{SAVE_PATH}port443.txt', 'w', encoding='utf-8') as f:
+        f.write(port443)
+    print(f'save port443.txt 完成！')
+    
     
 def getContent(url):#获取网站的内容，将获取的内容返回
     headers={
