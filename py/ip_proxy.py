@@ -4,19 +4,9 @@ import requests
 import json
 
 
-PATH = './ip_proxy/'
-IPURL = './ipUrl.txt'
-
-"""
-import re
-from datetime import datetime
-import requests
-import json
-
-
 PATH = './'
 IPURL = './ipUrl.txt'
-"""
+
 
 def get_address(ip):#得到IP归属地
     tap_url = f'https://ip125.com/api/{ip}?lang=zh-CN'
