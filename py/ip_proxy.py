@@ -4,7 +4,7 @@ import requests
 import json
 
 
-PATH = './ip_proxy/'
+PATH = './'
 IPURL = './ipUrl.txt'
 
 
