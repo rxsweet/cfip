@@ -9,8 +9,9 @@ on:
       - ipUrl.txt
   workflow_dispatch:
   workflow_run:
-    workflows: ["pushIP"]
+    workflows: ["pushIP","update_proxy_ip"]
     types: [completed]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
