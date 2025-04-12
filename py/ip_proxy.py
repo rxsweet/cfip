@@ -89,7 +89,7 @@ if "__name__==__main__":#主程序开始
     ipurl_list = re.split(r'\n+',ipurl_all)
     print('\n'.join(ipurl_list))
     for i in range(len(ipurl_list)):
-        ip = re.findall('@(.*?):443',ipurl_list[i])
+        ip = re.findall(r'@(.*?):443',ipurl_list[i])
         #print(f'ip = {ip[0]}')
         if ip[0] not in allip:
             if 'ipHK.txt' in ipurl_list[i]:
