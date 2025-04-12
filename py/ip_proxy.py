@@ -87,6 +87,7 @@ if "__name__==__main__":#主程序开始
     with open(IPURL, 'r', encoding='utf-8') as f:
         ipurl_all = f.read()
     ipurl_list = re.split(r'\n+',ipurl_all)
+    print('\n'.join(ipurl_list))
     for i in range(len(ipurl_list)):
         ip = re.findall('@(.*?):443',ipurl_list[i])
         #print(f'ip = {ip[0]}')
