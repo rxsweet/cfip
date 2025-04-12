@@ -33,7 +33,8 @@ jobs:
       run: |
         git config user.email "actions@github.com"
         git config user.name "GitHub Actions"
-        git add ./proxyip.txt
+        git add ./ipUrl.txt
+        git add ./proxyip_good.txt
         git commit -m "$(date '+%Y-%m-%d %H:%M:%S') update proxyip done"
         git pull --rebase
     - name: 推送更改
