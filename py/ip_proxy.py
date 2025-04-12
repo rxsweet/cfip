@@ -4,7 +4,7 @@ import requests
 import json
 
 
-PATH = './'
+PATH = './ip_proxy/'
 IPURL = './ipUrl.txt'
 
 
@@ -134,3 +134,4 @@ if "__name__==__main__":#主程序开始
     ipurl_list = '\n'.join(ipurl_list)
     with open(IPURL, 'w', encoding='utf-8') as f:
         f.write(ipurl_list)
+
