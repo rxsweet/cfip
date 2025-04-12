@@ -1,4 +1,13 @@
+import re
+from datetime import datetime
+import requests
+import json
 
+
+PATH = './ip_proxy/'
+IPURL = './ipUrl.txt'
+
+"""
 import re
 from datetime import datetime
 import requests
@@ -7,7 +16,7 @@ import json
 
 PATH = './'
 IPURL = './ipUrl.txt'
-
+"""
 
 def get_address(ip):#得到IP归属地
     tap_url = f'https://ip125.com/api/{ip}?lang=zh-CN'
@@ -90,5 +99,51 @@ if "__name__==__main__":#主程序开始
     ipurl_list = re.split(r'\n+',ipurl_all)
     print('\n'.join(ipurl_list))
     for i in range(len(ipurl_list)):
+        if ipurl_list[i] == '':
+            continue
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
         print(f'ip = {ip}')
+        if ip[0] not in allip:
+            if 'ipHK.txt' in ipurl_list[i]:
+                for goodip in allip:
+                    if '#HK' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#HK',goodip)
+                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                        #print(f'use_ip[0] = {use_ip[0]}')
+                        #print(f"ipurl_list[i] = {ipurl_list[i]}")
+                        break
+            elif 'ipSG.txt' in ipurl_list[i]:
+                for goodip in allip:
+                    if '#SG' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#SG',goodip)
+                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                        break
+            elif 'ipJP.txt' in ipurl_list[i]:
+                for goodip in allip:
+                    if '#JP' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#JP',goodip)
+                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                        break
+            elif 'ipKR.txt' in ipurl_list[i]:
+                for goodip in allip:
+                    if '#KR' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#KR',goodip)
+                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                        break
+            elif 'ipUS.txt' in ipurl_list[i]:
+                if any('#US' in item for item in allip):
+                    for goodip in allip:
+                        if '#US' in goodip and '======' in goodip:
+                            use_ip = re.split(r'#US',goodip)
+                            ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                            break
+                else:
+                    for goodip in allip:
+                        if '#SG' in goodip and '======' in goodip:
+                            use_ip = re.split(r'#SG',goodip)
+                            ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                            break
+
+    ipurl_list = '\n'.join(ipurl_list)
+    with open(IPURL, 'w', encoding='utf-8') as f:
+        f.write(ipurl_list)
