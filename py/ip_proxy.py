@@ -91,6 +91,7 @@ if "__name__==__main__":#主程序开始
     ipurl_list = re.split(r'\n+',ipurl_all)
     print('\n'.join(ipurl_list))
     for i in range(len(ipurl_list)):
+        #如果内容是空
         if ipurl_list[i] == '':
             continue
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
@@ -111,17 +112,31 @@ if "__name__==__main__":#主程序开始
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
             elif 'ipJP.txt' in ipurl_list[i]:
-                for goodip in allip:
-                    if '#JP' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#JP',goodip)
-                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
-                        break
+                if any('#JP' in item for item in allip):
+                    for goodip in allip:
+                        if '#JP' in goodip and '======' in goodip:
+                            use_ip = re.split(r'#JP',goodip)
+                            ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                            break
+                else:
+                    for goodip in allip:
+                        if '#SG' in goodip and '======' in goodip:
+                            use_ip = re.split(r'#SG',goodip)
+                            ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                            break
             elif 'ipKR.txt' in ipurl_list[i]:
-                for goodip in allip:
-                    if '#KR' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#KR',goodip)
-                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
-                        break
+                if any('#KR' in item for item in allip):
+                    for goodip in allip:
+                        if '#KR' in goodip and '======' in goodip:
+                            use_ip = re.split(r'#KR',goodip)
+                            ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                            break
+                else:
+                    for goodip in allip:
+                        if '#HK' in goodip and '======' in goodip:
+                            use_ip = re.split(r'#HK',goodip)
+                            ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                            break
             elif 'ipUS.txt' in ipurl_list[i]:
                 if any('#US' in item for item in allip):
                     for goodip in allip:
