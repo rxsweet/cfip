@@ -11,7 +11,7 @@ IPURL = './ipUrl.txt'
 def get_address(ip):#得到IP归属地
     #tap_url = f'https://ip125.com/api/{ip}?lang=zh-CN'
     #tap_url = f'https://api.ip.sb/geoip/{ip}'
-    tap_url = 'https://ip-api.io/json?ip={ip}'
+    tap_url = f'http://ip-api.com/json/{ip}?lang=zh-CN'
     head = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0',
         'Cookie': '_ga=GA1.2.348223593.1668760697; _ga_XYJPKQNDKR=GS1.1.1669809730.4.1.1669809752.0.0.0; __gads=ID=e9cb6076c0188403-228d0f367edf00b9:T=1683097828:RT=1701660864:S=ALNI_MZoNQcRpP-66ZZidp6BAlct92mbOw; __gpi=UID=00000c011afd3f29:T=1683097828:RT=1701660864:S=ALNI_MZSTguCSNwyc6d4WgMIcm7m-Xepvg'
