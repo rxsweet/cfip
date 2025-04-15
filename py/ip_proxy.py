@@ -89,13 +89,14 @@ if "__name__==__main__":#主程序开始
     with open(IPURL, 'r', encoding='utf-8') as f:
         ipurl_all = f.read()
     ipurl_list = re.split(r'\n+',ipurl_all)
-    print('\n'.join(ipurl_list))
+    plist = '\n'.join(ipurl_list)
+    print(f"修改前:\n{plist}")
     for i in range(len(ipurl_list)):
         #如果内容是空
         if ipurl_list[i] == '':
             continue
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
-        print(f'ip = {ip}')
+        #print(f'原ip = {ip}')
         if ip[0] not in allip:
             if 'ipHK.txt' in ipurl_list[i]:
                 for goodip in allip:
@@ -152,5 +153,6 @@ if "__name__==__main__":#主程序开始
                             break
 
     ipurl_list = '\n'.join(ipurl_list)
+    print(f'修改后:\n{ipurl_list}')
     with open(IPURL, 'w', encoding='utf-8') as f:
         f.write(ipurl_list)
