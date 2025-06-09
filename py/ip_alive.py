@@ -43,9 +43,10 @@ if "__name__==__main__":#主程序开始
         if 'US' in ip:
             usip.append(ip)
     #保存
-    alive_ip = '\n'.join(alive_ip)
-    with open(f'{PATH}/checked/ipALL.txt', 'w', encoding='utf-8') as f:
-        f.write(alive_ip)
+    if hkip and jpip and sgip and krip and usip:
+        alive_ip = '\n'.join(alive_ip)
+        with open(f'{PATH}/checked/ipALL.txt', 'w', encoding='utf-8') as f:
+            f.write(alive_ip)
     if hkip:
         hkip = '\n'.join(hkip)
         with open(f'{PATH}/checked/ipHK.txt', 'w', encoding='utf-8') as f:
