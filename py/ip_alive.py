@@ -4,7 +4,7 @@ PATH = './ip/'
     
 if "__name__==__main__":#主程序开始
 
-    with open(f'{PATH}ALLIP.txt', 'r', encoding='utf-8') as f:
+    with open(f'{PATH}ALL.txt', 'r', encoding='utf-8') as f:
         ip_all = f.read()
     ip_list = re.split(r'\n+',ip_all)
 
@@ -25,8 +25,40 @@ if "__name__==__main__":#主程序开始
                 alive_ip.append(ip)
                 print(ip)
                 continue
-    #去重后保存
+    #分区域保存
+    hkip = []
+    jpip = []
+    sgip = []
+    krip = []
+    usip = []
+    for ip in alive_ip:
+        if 'HK' in ip or 'TW' in ip:
+            hkip.append(ip)
+        if 'JP' in ip:
+            jpip.append(ip)
+        if 'SG' in ip:
+            sgip.append(ip)
+        if 'KR' in ip:
+            krip.append(ip)
+        if 'US' in ip:
+            usip.append(ip)
+    #保存
     alive_ip = '\n'.join(alive_ip)
-    with open(f'{PATH}/checked/node_ip.txt', 'w', encoding='utf-8') as f:
-        f.write(alive_ip)
+    hkip = '\n'.join(hkip)
+    jpip = '\n'.join(jpip)
+    sgip = '\n'.join(sgip)
+    krip = '\n'.join(krip)
+    usip = '\n'.join(usip)
     
+    with open(f'{PATH}/checked/ipALL.txt', 'w', encoding='utf-8') as f:
+        f.write(alive_ip)
+    with open(f'{PATH}/checked/ipHK.txt', 'w', encoding='utf-8') as f:
+        f.write(hkip)
+    with open(f'{PATH}/checked/ipJP.txt', 'w', encoding='utf-8') as f:
+        f.write(jpip)
+    with open(f'{PATH}/checked/ipSG.txt', 'w', encoding='utf-8') as f:
+        f.write(sgip)
+    with open(f'{PATH}/checked/ipKR.txt', 'w', encoding='utf-8') as f:
+        f.write(krip)
+    with open(f'{PATH}/checked/ipUS.txt', 'w', encoding='utf-8') as f:
+        f.write(usip)
