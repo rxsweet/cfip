@@ -4,7 +4,7 @@ PATH = './ip/'
     
 if "__name__==__main__":#主程序开始
 
-    with open(f'{PATH}ALL.txt', 'r', encoding='utf-8') as f:
+    with open(f'{PATH}ALLIP.txt', 'r', encoding='utf-8') as f:
         ip_all = f.read()
     ip_list = re.split(r'\n+',ip_all)
 
