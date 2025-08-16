@@ -1,5 +1,0 @@
-https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/iphk.txt@47.76.218.163:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipjp.txt@13.230.34.30:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipkr.txt@52.141.25.42:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipsg.txt@213.35.107.73:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ipus.txt@213.35.107.73:443
