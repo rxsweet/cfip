@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/HK.txt@47.76.218.163:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/tHK.txt@47.76.218.163:443
 
