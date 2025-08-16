@@ -45,27 +45,27 @@ if "__name__==__main__":#主程序开始
     #保存
     if hkip and jpip and sgip and krip and usip:
         alive_ip = '\n'.join(alive_ip)
-        with open(f'{PATH}/checked/ipALL.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}/checked/all.txt', 'w', encoding='utf-8') as f:
             f.write(alive_ip)
     if hkip:
         hkip = '\n'.join(hkip)
-        with open(f'{PATH}/checked/ipHK.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}/checked/hk.txt', 'w', encoding='utf-8') as f:
             f.write(hkip)
     if jpip:
         jpip = '\n'.join(jpip)
-        with open(f'{PATH}/checked/ipJP.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}/checked/jp.txt', 'w', encoding='utf-8') as f:
             f.write(jpip)
     if sgip:
         sgip = '\n'.join(sgip)
-        with open(f'{PATH}/checked/ipSG.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}/checked/sg.txt', 'w', encoding='utf-8') as f:
             f.write(sgip)
     if krip:
         krip = '\n'.join(krip)
-        with open(f'{PATH}/checked/ipKR.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}/checked/kr.txt', 'w', encoding='utf-8') as f:
             f.write(krip)
     if usip:
         usip = '\n'.join(usip)
-        with open(f'{PATH}/checked/ipUS.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}/checked/us.txt', 'w', encoding='utf-8') as f:
             f.write(usip)
     
 
