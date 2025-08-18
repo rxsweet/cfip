@@ -17,7 +17,6 @@ jobs:
         mkdir sub
         cd ./sub
         wget -q -O cf1.yaml '${{ vars.TEST_111 }}'
-        #curl -o cf2.yaml '${{ vars.TEST_111 }}'
     - name: Commit
       id: commit
       continue-on-error: true
