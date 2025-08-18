@@ -1,4 +1,4 @@
-name: update_cf_node
+name: test
 
 # 触发条件
 on:
