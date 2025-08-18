@@ -1,0 +1,36 @@
+name: update_cf_node
+
+# 触发条件
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 迁出代码
+      uses: actions/checkout@v4
+    - name: 设置时区
+      run: sudo timedatectl set-timezone 'Asia/Shanghai' 
+    - name: 执行任务 -update node
+      run: |
+        mkdir sub
+        cd ./sub
+        sleep 60
+        curl -o cf.txt '${{ vars.VMESS_TXT }}'
+        curl -o cf.yaml '${{ vars.VMESS_YAML }}'
+        curl -o cf1.txt '${{ vars.TROJAN_TXT }}'
+        wget -q -O cf1.yaml '${{ vars.TROJAN_YAML }}'
+    - name: Commit
+      id: commit
+      continue-on-error: true
+      run: |
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
+        git add ./sub
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') update node done"
+        git pull --rebase
+    - name: 推送更改
+      uses:  ad-m/github-push-action@master
+      with:
+        branch: main
