@@ -16,7 +16,6 @@ jobs:
       run: |
         mkdir sub
         cd ./sub
-        sleep 60
         curl -o cf.txt '${{ vars.VMESS_TXT }}'
         curl -o cf.yaml '${{ vars.VMESS_YAML }}'
         curl -o cf1.txt '${{ vars.TROJAN_TXT }}'
