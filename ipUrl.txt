@@ -2,4 +2,4 @@ https://raw.githubusercontent.com/rxsweet/cfip/main/hk.txt@47.76.218.163:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/jp.txt@13.230.34.30:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/kr.txt@52.141.25.42:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/sg.txt@168.138.165.174:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/us.txt@168.138.165.174:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/us.txt@142.171.233.183:443
