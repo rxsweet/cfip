@@ -2,18 +2,19 @@ import re
 import requests
 import json
 
-SOURCE = 'ip.txt'
+#SOURCE = 'ip.txt'
+SOURCE = './ip/checked/node_ip.txt'
 SAVE_PATH = './ip/area/'
 
-要筛选哪个地区直接在此添加
+#要筛选哪个地区直接在此添加
 IP_YAML = {
-    'ALLIP':[],
-    'HK':[],
-    'TW':[],
-    'JP':[],
-    'SG':[],
-    'KR':[],
-    'US':[],
+    'allip':[],
+    'hk':[],
+    'tw':[],
+    'jp':[],
+    'sg':[],
+    'kr':[],
+    'us':[],
     'other':[],
 }
 
@@ -82,7 +83,7 @@ if "__name__==__main__":#主程序开始
                 ipinfo = ip + '#' + country_info + '_other'
                 IP_YAML['other'].append(ipinfo)
             
-            IP_YAML['ALLIP'].append(ipinfo)#需要按国家排序的话,使用下面的for
+            IP_YAML['allip'].append(ipinfo)#需要按国家排序的话,使用下面的for
             print(ipinfo)
         except Exception as e:#万能异常
             print(f'{ip}出现错误,错误内容如下：\n{e}')
@@ -90,8 +91,8 @@ if "__name__==__main__":#主程序开始
     #按地区排序
     """
     for key,value in IP_YAML.items():
-        if key != 'ALLIP':
-            IP_YAML['ALLIP'].extend(value)
+        if key != 'allip':
+            IP_YAML['allip'].extend(value)
     """
     #保存IP
     for key,value in IP_YAML.items():
