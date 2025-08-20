@@ -1,1 +1,5 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/port443.txt@47.76.218.163:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/hk.txt@1.1.1.1:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/jp.txt@1.1.1.1:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/kr.txt@1.1.1.1:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/sg.txt@1.1.1.1:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/us.txt@1.1.1.1:443
