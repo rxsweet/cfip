@@ -7,25 +7,25 @@ SAVE_PATH = './ip/'
 #https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/HK.txt
 """
 apiList={
-  'HK':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/HK.txt',
-  'TW':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/TW.txt',
-  'JP':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/JP.txt',
-  'SG':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/SG.txt',
-  'KR':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/KR.txt',
-  'US':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/US.txt',
+  'hk':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/HK.txt',
+  'tw':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/TW.txt',
+  'jp':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/JP.txt',
+  'sg':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/SG.txt',
+  'kr':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/KR.txt',
+  'us':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/US.txt',
   }
 """
 apiList={
-  'HK':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/HK.txt',
-  'TW':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/TW.txt',
-  'JP':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/JP.txt',
-  'SG':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/SG.txt',
-  'KR':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/KR.txt',
-  'US':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/US.txt',
+  'hk':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/HK.txt',
+  'tw':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/TW.txt',
+  'jp':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/JP.txt',
+  'sg':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/SG.txt',
+  'kr':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/KR.txt',
+  'us':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/US.txt',
   }
 
 def saveIP(configList):#整理保存
-    ALLIP = []
+    allip = []
     port443 = []
     for key,value in configList.items():
         #保存区域
@@ -38,21 +38,21 @@ def saveIP(configList):#整理保存
             with open(f'{SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                 f.write(new_ip_list)
             print(f'save {key}.txt 完成！')
-            ALLIP.append(new_ip_list)
+            allip.append(new_ip_list)
         except requests.exceptions.RequestException as e:  
             #print(e)
             print(F'获取{key}写入错误!')
             pass
     #将IP合并保存
-    ALLIP = ''.join(ALLIP)
-    with open(f'{SAVE_PATH}ALLIP.txt', 'w', encoding='utf-8') as f:
-        f.write(ALLIP)
-    print(f'save ALLIP.txt 完成！')
+    allip = ''.join(allip)
+    with open(f'{SAVE_PATH}allip.txt', 'w', encoding='utf-8') as f:
+        f.write(allip)
+    print(f'save allip.txt 完成！')
     
-    ALLIP = re.split(r'\n+',ALLIP)
+    allip = re.split(r'\n+',allip)
     #筛选443端口IP
-    for ip in ALLIP:
-        if ':443' in ip and '#US' not in ip:
+    for ip in allip:
+        if ':443' in ip and '#us' not in ip:
             #print(ip + 'haha' + '\n')
             ip = ip.split(":")[0]
             port443.append(ip)
@@ -92,5 +92,4 @@ if "__name__==__main__":#主程序开始
     configList = fetchIP(apiList)
     #整理保存
     saveIP(configList)
-    
     
