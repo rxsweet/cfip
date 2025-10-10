@@ -98,7 +98,7 @@ if "__name__==__main__":#主程序开始
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
         #print(f'原ip = {ip}')
         if ip[0] not in allip:
-            if 'hk.txt' in ipurl_list[i]:
+            if 'hk.txt' in ipurl_list[i] or 'tw.txt' in ipurl_list[i] or 'cn.txt' in ipurl_list[i]::
                 for goodip in allip:
                     if '#hk' in goodip and '======' in goodip:
                         use_ip = re.split(r'#hk',goodip)
@@ -172,7 +172,7 @@ if "__name__==__main__":#主程序开始
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
         #print(f'原ip = {ip}')
         if ip[0] not in allip:
-            if 'hk.txt' in ipurl_list[i]:
+            if 'hk.txt' in ipurl_list[i] or 'tw.txt' in ipurl_list[i] or 'cn.txt' in ipurl_list[i]:
                 for goodip in allip:
                     if '#hk' in goodip and '======' in goodip:
                         use_ip = re.split(r'#hk',goodip)
