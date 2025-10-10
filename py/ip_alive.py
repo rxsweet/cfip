@@ -32,15 +32,15 @@ if "__name__==__main__":#主程序开始
     krip = []
     usip = []
     for ip in alive_ip:
-        if 'hk' in ip or 'tw' in ip or 'cn' in ip:
+        if 'hk' in ip or 'tw' in ip or 'cn' in ip or 'HK' in ip or 'TW' in ip or 'CN' in ip:
             hkip.append(ip)
-        if 'jp' in ip:
+        if 'jp' in ip or 'JP' in ip:
             jpip.append(ip)
-        if 'sg' in ip:
+        if 'sg' in ip or 'SG' in ip:
             sgip.append(ip)
-        if 'kr' in ip:
+        if 'kr' in ip or 'KR' in ip:
             krip.append(ip)
-        if 'us' in ip:
+        if 'us' in ip or 'US' in ip:
             usip.append(ip)
     #保存
     if hkip and jpip and sgip and krip and usip:
