@@ -32,15 +32,15 @@ if "__name__==__main__":#主程序开始
     krip = []
     usip = []
     for ip in alive_ip:
-        if 'HK' in ip or 'TW' in ip:
+        if 'hk' in ip or 'tw' in ip or 'cn' in ip:
             hkip.append(ip)
-        if 'JP' in ip:
+        if 'jp' in ip:
             jpip.append(ip)
-        if 'SG' in ip:
+        if 'sg' in ip:
             sgip.append(ip)
-        if 'KR' in ip:
+        if 'kr' in ip:
             krip.append(ip)
-        if 'US' in ip:
+        if 'us' in ip:
             usip.append(ip)
     #保存
     if hkip and jpip and sgip and krip and usip:
@@ -67,6 +67,3 @@ if "__name__==__main__":#主程序开始
         usip = '\n'.join(usip)
         with open(f'{PATH}/checked/us.txt', 'w', encoding='utf-8') as f:
             f.write(usip)
-    
-
-    
