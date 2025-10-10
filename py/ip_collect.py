@@ -14,7 +14,7 @@ apiList={
   'kr':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/KR.txt',
   'us':'https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/US.txt',
   }
-"""
+#大佬不更新,暂时用NiREvil大佬的
 apiList={
   'hk':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/HK.txt',
   'tw':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/TW.txt',
@@ -23,7 +23,17 @@ apiList={
   'kr':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/KR.txt',
   'us':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/US.txt',
   }
+"""
 
+apiList={
+  'hk':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/HK.txt',
+  'tw':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/TW.txt',
+  'cn':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/CN.txt',
+  'jp':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/JP.txt',
+  'sg':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/SG.txt',
+  'kr':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/KR.txt',
+  'us':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/US.txt',
+  }
 def saveIP(configList):#整理保存
     allip = []
     port443 = []
