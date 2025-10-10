@@ -60,13 +60,13 @@ if "__name__==__main__":#主程序开始
     krip = []
     other = []
     for ip in newlist:
-        if '#hk' in ip or '#tw' in ip:
+        if '#hk' in ip or '#tw' in ip or 'cn' in ip or '#HK' in ip or '#TW' in ip or 'CN' in ip :
             hkip.append(ip)
-        elif '#sg' in ip:
+        elif '#sg' in ip or '#SG' in ip :
             sgip.append(ip)
-        elif '#jp' in ip:
+        elif '#jp' in ip or '#JP' in ip :
             jpip.append(ip)
-        elif '#kr' in ip:
+        elif '#kr' in ip or '#KR' in ip :
             krip.append(ip)
         elif '======' in ip:
             other.append(ip)
