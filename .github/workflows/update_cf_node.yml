@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - ipUrl.txt
+      - ipurl.txt
   workflow_dispatch:
   workflow_run:
     workflows: ["pushIP","update_proxy_ip"]
