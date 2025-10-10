@@ -5,7 +5,7 @@ import json
 
 
 PATH = './'
-IPURL = './ipurl.txt'
+IPURL = './ipUrl.txt'
 
 
 def get_address(ip):#得到IP归属地
