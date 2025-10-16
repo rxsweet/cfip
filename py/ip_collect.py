@@ -63,7 +63,7 @@ class Exball:
                 
                 new_ip_list = '\n'.join(new_list)
                 print(new_ip_list)
-                with open(f'{SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
+                with open(f'{Exball_SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                     f.write(new_ip_list)
                 print(f'save {key}.txt 完成！')
                 allip.append(new_ip_list)
@@ -74,7 +74,7 @@ class Exball:
         
         #将IP合并保存
         allip = ''.join(allip)
-        with open(f'{SAVE_PATH}allip.txt', 'w', encoding='utf-8') as f:
+        with open(f'{Exball_SAVE_PATH}allip.txt', 'w', encoding='utf-8') as f:
             f.write(allip)
         print(f'save allip.txt 完成！')
         
@@ -87,11 +87,11 @@ class Exball:
                 port443.append(ip)
         #保存443端口IP
         port443 = '\n'.join(port443)
-        with open(f'{SAVE_PATH}port443.txt', 'w', encoding='utf-8') as f:
+        with open(f'{Exball_SAVE_PATH}port443.txt', 'w', encoding='utf-8') as f:
             f.write(port443)
         print(f'save port443.txt 完成！')
-        
-        
+
+  
     def getContent(url):#获取网站的内容，将获取的内容返回
         headers={
         "User-Agent":"okhttp/3.15",
@@ -116,6 +116,7 @@ class Exball:
             if config:
                 ipList[key]=config
         return ipList
+    
 
 
 def saveIP(configList):#整理保存
