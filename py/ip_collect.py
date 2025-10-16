@@ -60,7 +60,7 @@ class Exball:
                     ipaddr = ipinfo[0]
                     port   = ipinfo[1]
                     country= ipinfo[2]
-                    new_list.append(ipaddr+':'+port+'#'+country+'_'+'Exball')
+                    new_list.append(ipaddr+':'+port+'#'+key+'_'+'Exball')
                 
                 new_ip_list = '\n'.join(new_list)
                 print(new_ip_list)
@@ -130,7 +130,7 @@ class NiREvil:
                 value = re.sub(' ',':',value)
                 #添加区域标注
                 ip_list = re.split(r'\n+',value)
-                new_ip_list = f'#{key}\n'.join(ip_list)#加注释 #HK等
+                new_ip_list = f'#{key+"_NiREvil"}\n'.join(ip_list)#加注释 #HK等
                 with open(f'{NiREvil_SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                     f.write(new_ip_list)
                 print(f'save {key}.txt 完成！')
