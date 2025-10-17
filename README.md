@@ -1,9 +1,11 @@
 # cfip
  - https://github.com/6Kmfi6HP/proxy_files
  - https://github.com/FoolVPN-ID/Nautica
- - https://github.com/exball/sing-box-config
  - https://github.com/freetomaid/5412
  - https://github.com/SherlyKinan/proxy-check/
+ 现用：
+ - https://github.com/exball/sing-box-config
+ - https://github.com/NiREvil/vless/tree/main/sub/country_proxies
 
 ## 注意：
 1.ipurl.txt使用时,目录，文件不能是大写字母
