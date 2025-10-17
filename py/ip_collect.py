@@ -98,7 +98,7 @@ def Exball_saveIP():#整理保存
 #get ip: https://github.com/NiREvil
 def NiREvil_saveIP():#整理保存
     try:
-        configList = fetchUrlContent(exball_apiList)
+        configList = fetchUrlContent(NiREvil_apiList)
         if not configList:
             print("failed: NiREvil no ip was collected! ")
             return
@@ -168,6 +168,45 @@ def fetchUrlContent(apiList):#获取列表网站的ip内容
             ipList[key]=config
     return ipList
 
+#列表去重
+def list_rm(urlList):
+    begin = 0
+    rm = 0
+    length = len(urlList)
+    print(f'\n-----去重开始-----\n')
+    while begin < length:
+        proxy_compared = urlList[begin]
+        begin_2 = begin + 1
+        while begin_2 <= (length - 1):
+            if proxy_compared == urlList[begin_2]:
+                urlList.pop(begin_2)
+                length -= 1
+                begin_2 -= 1
+                rm += 1
+            begin_2 += 1
+        begin += 1
+    print(f'重复数量 {rm}\n-----去重结束-----\n')
+    print(f'剩余总数 {str(len(urlList))}\n')
+    return urlList
+
+#收集合并443端口IP
+def merge443():
+    new443 = []
+    with open(f'{NiREvil_SAVE_PATH}port443.txt', 'r', encoding='utf-8') as f:
+        content1 = f.read()
+    
+    with open(f'{Exball_SAVE_PATH}port443.txt', 'r', encoding='utf-8') as f:
+        content2 = f.read()
+    ip_list = re.split(r'\n',content1)
+    new443.extend(ip_list) 
+    ip_list = re.split(r'\n',content2)
+    new443.extend(ip_list)
+    new443 = list_rm(new443)
+    #保存443端口IP
+    new443 = '\n'.join(new443)
+    with open(f'./ip/port443.txt', 'w', encoding='utf-8') as f:
+        f.write(new443)
 if "__name__==__main__":#主程序开始
     NiREvil_saveIP()
     Exball_saveIP()
+    merge443()
