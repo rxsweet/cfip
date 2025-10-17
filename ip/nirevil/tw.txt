@@ -1,5 +1,12 @@
-210.61.97.241,81,TW,Data:Communication:Business:Group#tw_NiREvil
-167.179.27.92,443,TW,Aryaka:Networks,:Inc.#tw_NiREvil
-60.249.114.181,26398,TW,Data:Communication:Business:Group#tw_NiREvil
-60.249.114.181,21574,TW,Data:Communication:Business:Group#tw_NiREvil
-60.249.114.181,32003,TW,Data:Communication:Business:Group
+213.210.5.61:8443#tw_NiREvil
+149.104.120.254:443#tw_NiREvil
+210.61.97.241:81#tw_NiREvil
+114.34.202.224:10004#tw_NiREvil
+45.207.158.29:8443#tw_NiREvil
+213.210.4.49:443#tw_NiREvil
+188.253.117.154:443#tw_NiREvil
+45.207.158.29:2083#tw_NiREvil
+45.207.158.29:2053#tw_NiREvil
+123.253.111.136:443#tw_NiREvil
+103.137.63.205:31564#tw_NiREvil
+122.117.174.80:443#tw_NiREvil
