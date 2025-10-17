@@ -1,6 +1,0 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/hk.txt@47.76.218.163:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/tw.txt@47.76.218.163:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/jp.txt@18.183.158.211:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/kr.txt@52.141.25.42:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/sg.txt@168.138.165.174:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/us.txt@168.138.165.174:443
