@@ -65,7 +65,7 @@ def Exball_saveIP():#整理保存
                 new_list.append(ipaddr+':'+port+'#'+key+'_'+'Exball')
             
             new_ip_list = '\n'.join(new_list)
-            print(new_ip_list)
+            #print(new_ip_list)
             with open(f'{Exball_SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                 f.write(new_ip_list)
             print(f'save {key}.txt 完成！')
@@ -206,6 +206,7 @@ def merge443():
     new443 = '\n'.join(new443)
     with open(f'./ip/port443.txt', 'w', encoding='utf-8') as f:
         f.write(new443)
+    print(f'合并(merge) port443.txt 完成！')
 if "__name__==__main__":#主程序开始
     NiREvil_saveIP()
     Exball_saveIP()
