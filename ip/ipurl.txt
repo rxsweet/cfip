@@ -1,12 +1,12 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/hk.txt@47.76.218.163:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/tw.txt@47.76.218.163:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/hk.txt@8.210.29.68:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/tw.txt@8.210.29.68:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/jp.txt@18.183.158.211:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/kr.txt@52.141.25.42:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/sg.txt@168.138.165.174:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/exball/us.txt@168.138.165.174:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/hk.txt@47.76.218.163:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/tw.txt@47.76.218.163:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/cn.txt@47.76.218.163:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/hk.txt@8.210.29.68:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/tw.txt@8.210.29.68:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/cn.txt@8.210.29.68:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/jp.txt@18.183.158.211:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/kr.txt@52.141.25.42:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/nirevil/sg.txt@168.138.165.174:443
