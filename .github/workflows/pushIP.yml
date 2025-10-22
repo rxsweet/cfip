@@ -2,11 +2,11 @@ name: pushIP
 
 # 触发条件
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - all.txt
+  #push:
+    #branches:
+      #- main
+    #paths:
+      #- all.txt
   workflow_dispatch:
 jobs:
   deploy:
