@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - ipUrl.txt
-      - ipUrl111.txt
+      - all.txt
   workflow_dispatch:
   workflow_run:
     workflows: ["pushIP","update_proxy_ip"]
