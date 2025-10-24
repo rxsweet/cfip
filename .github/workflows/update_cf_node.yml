@@ -25,7 +25,7 @@ jobs:
       run: |
         mkdir sub
         cd ./sub
-        echo %time% > cf_ip_update_time.txt
+        echo "$(date +'%Y-%m-%d %H:%M:%S')" > cf_ip_update_time.txt
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
       env:
