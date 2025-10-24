@@ -25,11 +25,7 @@ jobs:
       run: |
         mkdir sub
         cd ./sub
-        sleep 60
-        curl -o cf.txt '${{ vars.VMESS_TXT }}'
-        curl -o cf.yaml '${{ vars.VMESS_YAML }}'
-        curl -o cf1.txt '${{ vars.TROJAN_TXT }}'
-        wget -q -O cf1.yaml '${{ vars.TROJAN_YAML }}'
+        echo %time% >> cf_ip_update_time.txt
     - name: Pushes
       uses: rxsweet/copy_file_to_another_repo_action@main
       env:
