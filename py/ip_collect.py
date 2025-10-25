@@ -76,7 +76,7 @@ def Exball_saveIP():#整理保存
             pass
 
     #将IP合并保存
-    allip = '\n'.join(allip)
+    allip = ''.join(allip)
     with open(f'{Exball_SAVE_PATH}allip.txt', 'w', encoding='utf-8') as f:
         f.write(allip)
     print(f'save allip.txt 完成！')
