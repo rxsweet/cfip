@@ -69,7 +69,7 @@ def Exball_saveIP():#整理保存
             with open(f'{Exball_SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                 f.write(new_ip_list)
             print(f'save {key}.txt 完成！')
-            allip.append(new_list)
+            allip.append(new_ip_list)
         except requests.exceptions.RequestException as e:  
             #print(e)
             print(F'获取{key}写入错误!')
