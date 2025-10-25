@@ -62,14 +62,14 @@ def Exball_saveIP():#整理保存
                 ipaddr = ipinfo[0]
                 port   = ipinfo[1]
                 country= ipinfo[2]
-                new_list.append(ipaddr+':'+port+'#'+key+'_'+'Exball'+'\n')#如果没\n，下面allip保存时IP会出现错误
+                new_list.append(ipaddr+':'+port+'#'+key+'_'+'Exball')
             
             new_ip_list = '\n'.join(new_list)
             #print(new_ip_list)
             with open(f'{Exball_SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
                 f.write(new_ip_list)
             print(f'save {key}.txt 完成！')
-            allip.append(new_ip_list)
+            allip.append(new_list)
         except requests.exceptions.RequestException as e:  
             #print(e)
             print(F'获取{key}写入错误!')
