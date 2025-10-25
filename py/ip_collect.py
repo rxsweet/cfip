@@ -191,8 +191,8 @@ def ip_list_rm(urlList):#列表去重
         if repeat > 0:
              urlList[begin]= urlList[begin] + '_'+ str(repeat)
         begin += 1
-    print(f'重复数量 {rm}\n-----去重结束-----')
-    print(f'剩余总数 {str(len(urlList))}')
+    print(f'重复数量 {rm}')
+    print(f'剩余总数 {str(len(urlList))}\n-----去重结束-----')
     return urlList
 
 
