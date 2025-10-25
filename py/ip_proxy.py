@@ -39,8 +39,8 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
     ipurl_list = re.split(r'\n+',ipurl_all)
     
     #修改前显示一下
-    #plist = '\n'.join(ipurl_list)
-    #print(f"修改前:\n{plist}")
+    plist = '\n'.join(ipurl_list)
+    print(f"修改前:\n{plist}")
     
     #开始修改
     for i in range(len(ipurl_list)):
@@ -160,7 +160,7 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
                             break
         """
     ipurl_list = '\n'.join(ipurl_list)
-    #print(f'修改后:\n{ipurl_list}')
+    print(f'修改后:\n{ipurl_list}')
     with open(IPURL, 'w', encoding='utf-8') as f:
         f.write(ipurl_list)
 
