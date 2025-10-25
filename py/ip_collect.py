@@ -94,7 +94,6 @@ def Exball_saveIP():#整理保存
         f.write(port443)
     print(f'save port443.txt 完成！')
 
-
 #get ip: https://github.com/NiREvil
 def NiREvil_saveIP():#整理保存
     try:
@@ -168,46 +167,66 @@ def fetchUrlContent(apiList):#获取列表网站的ip内容
             ipList[key]=config
     return ipList
 
-#列表去重
-def list_rm(urlList):
+
+#ip列表去重
+def ip_list_rm(urlList):#列表去重
     begin = 0
     rm = 0
     length = len(urlList)
-    print(f'\n-----去重开始-----\n')
+    print(f'-----去重开始-----')
     while begin < length:
         proxy_compared = urlList[begin]
         begin_2 = begin + 1
+        repeat = 0 #单个重复数
         while begin_2 <= (length - 1):
-            if proxy_compared == urlList[begin_2]:
+            ip = re.split(r':',urlList[begin_2])
+            if ip[0] in proxy_compared:
                 urlList.pop(begin_2)
                 length -= 1
                 begin_2 -= 1
                 rm += 1
+                repeat = repeat + 1
             begin_2 += 1
+        #给去重后的元素添加重复数
+        if repeat > 0:
+             urlList[begin]= urlList[begin] + '_'+ str(repeat)
         begin += 1
-    print(f'重复数量 {rm}\n-----去重结束-----\n')
-    print(f'剩余总数 {str(len(urlList))}\n')
+    print(f'重复数量 {rm}\n-----去重结束-----')
+    print(f'剩余总数 {str(len(urlList))}')
     return urlList
 
-#收集合并443端口IP
-def merge443():
-    new443 = []
-    with open(f'{NiREvil_SAVE_PATH}port443.txt', 'r', encoding='utf-8') as f:
-        content1 = f.read()
-    
-    with open(f'{Exball_SAVE_PATH}port443.txt', 'r', encoding='utf-8') as f:
-        content2 = f.read()
-    ip_list = re.split(r'\n',content1)
-    new443.extend(ip_list) 
-    ip_list = re.split(r'\n',content2)
-    new443.extend(ip_list)
-    new443 = list_rm(new443)
-    #保存443端口IP
-    new443 = '\n'.join(new443)
-    with open(f'./ip/port443.txt', 'w', encoding='utf-8') as f:
-        f.write(new443)
-    print(f'合并(merge) port443.txt 完成！')
+
+#合并IP文件
+def mergeIP():
+    #需要合并的IP添加到下面ipfiles中
+    ipfiles = {
+    'hk':[],
+    'jp':[],
+    'kr':[],
+    'sg':[],
+    'us':[],
+    'port443':[],
+    }
+    for key,value in ipfiles.items():
+        try:
+            with open(f'{NiREvil_SAVE_PATH}{key}.txt', 'r', encoding='utf-8') as f:
+                content1 = f.read()
+            with open(f'{Exball_SAVE_PATH}{key}.txt', 'r', encoding='utf-8') as f:
+                content2 = f.read()
+            ip_list = re.split(r'\n',content1)
+            value.extend(ip_list) 
+            ip_list = re.split(r'\n',content2)
+            value.extend(ip_list)
+            print(f'{key}.txt准备去重:')
+            value = ip_list_rm(value)
+            ipall = '\n'.join(value)
+            with open(f'./ip/{key}.txt', 'w', encoding='utf-8') as f:
+                f.write(ipall)
+            print(f'合并(merge) {key}.txt 完成！\n')
+        except:
+            print(f"{key}.txt ip collect Error!\n")
+
 if "__name__==__main__":#主程序开始
     NiREvil_saveIP()
     Exball_saveIP()
-    merge443()
+    mergeIP()
