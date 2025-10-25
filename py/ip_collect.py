@@ -62,7 +62,7 @@ def Exball_saveIP():#整理保存
                 ipaddr = ipinfo[0]
                 port   = ipinfo[1]
                 country= ipinfo[2]
-                new_list.append(ipaddr+':'+port+'#'+key+'_'+'Exball')
+                new_list.append(ipaddr+':'+port+'#'+key+'_'+'Exball'+'\n')#如果没\n，下面allip保存时IP会出现错误
             
             new_ip_list = '\n'.join(new_list)
             #print(new_ip_list)
