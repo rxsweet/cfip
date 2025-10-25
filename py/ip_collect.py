@@ -200,6 +200,7 @@ def ip_list_rm(urlList):#列表去重
 def mergeIP():
     #需要合并的IP添加到下面ipfiles中
     ipfiles = {
+    'allip':[],
     'hk':[],
     'jp':[],
     'kr':[],
