@@ -27,69 +27,7 @@ def get_address(ip):#得到IP归属地
         pass
         return '未知'
 
-if "__name__==__main__":#主程序开始
-
-    with open(f'{PATH}proxyip.txt', 'r', encoding='utf-8') as f:
-        proxyip_all = f.read()
-    proxyip_list = re.split(r'\n+',proxyip_all)
-    #print('\n'.join(proxyip_list))
-
-    with open(f'{PATH}proxyip_good.txt', 'r', encoding='utf-8') as f:
-        proxyip_good_all = f.read()
-    proxyip_good_list = re.split(r'\n+',proxyip_good_all)
-
-    nowtime = datetime.today().strftime('%Y%m%d')
-
-    
-    newlist = []
-    for ip in proxyip_list:
-        t = False
-        for good in proxyip_good_list:
-            if ip in good and '--' in good:
-                newip = good.split("--")[0]
-                newip = newip + '--' + nowtime
-                newlist.append(newip)
-                t = True
-                break
-        if t == False:
-            country_info = get_address(ip)
-            ipinfo = ip + '#' + country_info + '======' + nowtime + '--' + nowtime
-            newlist.append(ipinfo)
-    #将IP分区域排序
-    hkip = []
-    sgip = []
-    jpip = []
-    krip = []
-    other = []
-    for ip in newlist:
-        if '#hk' in ip or '#tw' in ip or 'cn' in ip or '#HK' in ip or '#TW' in ip or 'CN' in ip :
-            hkip.append(ip)
-        elif '#sg' in ip or '#SG' in ip :
-            sgip.append(ip)
-        elif '#jp' in ip or '#JP' in ip :
-            jpip.append(ip)
-        elif '#kr' in ip or '#KR' in ip :
-            krip.append(ip)
-        elif '======' in ip:
-            other.append(ip)
-    allip = []
-    allip.append('#hk')
-    allip.extend(hkip)
-    allip.append('#sg')
-    allip.extend(sgip)
-    allip.append('#jp')
-    allip.extend(jpip)
-    allip.append('#kr')
-    allip.extend(krip)
-    allip.append('#other')
-    allip.extend(other)
-    allip_str = '\n'.join(allip)
-    with open(GOOD_PROXYIP, 'w', encoding='utf-8') as f:
-        f.write(allip_str)
-    up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP)
-    #用于自己测速IP时使用
-    up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
-    
+#更新proxyip_good.txt到ipUrl.txt
 def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
     #oper ipUrl.txt
     with open(IPURL, 'r', encoding='utf-8') as f:
@@ -225,3 +163,72 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
     #print(f'修改后:\n{ipurl_list}')
     with open(IPURL, 'w', encoding='utf-8') as f:
         f.write(ipurl_list)
+
+#更新proxyip_good.txt
+def update_goodproxyip(GOOD_PROXYIP):
+    with open(f'{PATH}proxyip.txt', 'r', encoding='utf-8') as f:
+        proxyip_all = f.read()
+    proxyip_list = re.split(r'\n+',proxyip_all)
+    #print('\n'.join(proxyip_list))
+
+    with open(f'{PATH}proxyip_good.txt', 'r', encoding='utf-8') as f:
+        proxyip_good_all = f.read()
+    proxyip_good_list = re.split(r'\n+',proxyip_good_all)
+
+    nowtime = datetime.today().strftime('%Y%m%d')
+
+    
+    newlist = []
+    for ip in proxyip_list:
+        t = False
+        for good in proxyip_good_list:
+            if ip in good and '--' in good:
+                newip = good.split("--")[0]
+                newip = newip + '--' + nowtime
+                newlist.append(newip)
+                t = True
+                break
+        if t == False:
+            country_info = get_address(ip)
+            ipinfo = ip + '#' + country_info + '======' + nowtime + '--' + nowtime
+            newlist.append(ipinfo)
+    #将IP分区域排序
+    hkip = []
+    sgip = []
+    jpip = []
+    krip = []
+    other = []
+    for ip in newlist:
+        if '#hk' in ip or '#tw' in ip or 'cn' in ip or '#HK' in ip or '#TW' in ip or 'CN' in ip :
+            hkip.append(ip)
+        elif '#sg' in ip or '#SG' in ip :
+            sgip.append(ip)
+        elif '#jp' in ip or '#JP' in ip :
+            jpip.append(ip)
+        elif '#kr' in ip or '#KR' in ip :
+            krip.append(ip)
+        elif '======' in ip:
+            other.append(ip)
+    allip = []
+    allip.append('#hk')
+    allip.extend(hkip)
+    allip.append('#sg')
+    allip.extend(sgip)
+    allip.append('#jp')
+    allip.extend(jpip)
+    allip.append('#kr')
+    allip.extend(krip)
+    allip.append('#other')
+    allip.extend(other)
+    allip_str = '\n'.join(allip)
+    with open(GOOD_PROXYIP, 'w', encoding='utf-8') as f:
+        f.write(allip_str)
+
+if "__name__==__main__":#主程序开始
+    #更新proxyip_good.txt
+    update_goodproxyip(GOOD_PROXYIP)
+    #更新proxyip_good.txt到ipUrl.txt
+    up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP)
+    #用于自己测速IP时使用
+    up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
+    
