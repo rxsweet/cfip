@@ -25,6 +25,13 @@ if "__name__==__main__":#主程序开始
                 alive_ip.append(ip)
                 print(ip)
                 continue
+    #保存
+    alive_ip_str = '\n'.join(alive_ip)
+    with open(f'{PATH}/checked/all.txt', 'w', encoding='utf-8') as f:
+        f.write(alive_ip_str)
+
+    #暂时不需要分区了
+    """
     #分区域
     hkip = []
     jpip = []
@@ -43,9 +50,6 @@ if "__name__==__main__":#主程序开始
         if 'us' in ip or 'US' in ip:
             usip.append(ip)
     #保存
-    alive_ip = '\n'.join(alive_ip)
-    with open(f'{PATH}/checked/all.txt', 'w', encoding='utf-8') as f:
-        f.write(alive_ip)
     if hkip:
         hkip = '\n'.join(hkip)
         with open(f'{PATH}/checked/hk.txt', 'w', encoding='utf-8') as f:
@@ -66,3 +70,4 @@ if "__name__==__main__":#主程序开始
         usip = '\n'.join(usip)
         with open(f'{PATH}/checked/us.txt', 'w', encoding='utf-8') as f:
             f.write(usip)
+    """
