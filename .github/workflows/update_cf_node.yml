@@ -10,7 +10,7 @@ on:
       - all.txt
   workflow_dispatch:
   workflow_run:
-    workflows: ["pushIP","update_proxy_ip"]
+    workflows: ["pushIP","update_proxy_ip","alive IP Zone"]
     types: [completed]
 
 jobs:
