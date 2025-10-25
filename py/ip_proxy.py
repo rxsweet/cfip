@@ -233,5 +233,5 @@ if "__name__==__main__":#主程序开始
     #更新proxyip_good.txt到ipUrl.txt
     up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP)
     #用于自己测速IP时使用
-    #up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
+    up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
     
