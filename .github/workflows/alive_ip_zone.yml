@@ -1,0 +1,42 @@
+name: alive IP Zone
+
+# 触发条件
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ip/checked/all.txt
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 迁出代码
+      uses: actions/checkout@v4
+    - name: 设置时区
+      run: sudo timedatectl set-timezone 'Asia/Shanghai' 
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref }}
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Prepare 
+      run: pip install requests
+    - name: 执行任务 -alive IP Zone
+      run: |
+        python ./py/alive_ip_zone.py
+    - name: Commit
+      id: commit
+      continue-on-error: true
+      run: |
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
+        git add ./ip
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') alive IP Zone done"
+        git pull --rebase
+    - name: 推送更改
+      uses:  ad-m/github-push-action@master
+      with:
+        branch: main
