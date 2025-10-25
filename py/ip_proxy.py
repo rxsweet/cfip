@@ -5,8 +5,9 @@ import json
 
 
 PATH = './'
-IPURL = './ipUrl.txt'
+PROXYIP = f'{PATH}proxyip.txt'
 GOOD_PROXYIP = f'{PATH}proxyip_good.txt'
+IPURL = './ipUrl.txt'
 #用于自己测速IP时使用
 IPURL_TESTSPEED = f'{PATH}ip/ipurl.txt'
 
@@ -36,7 +37,7 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
     #oper GOOD_PROXYIP.txt
     with open(GOOD_PROXYIP, 'r', encoding='utf-8') as f:
         allip = f.read()
-    ipurl_list = re.split(r'\n+',ipurl_all)
+    allip = re.split(r'\n+',allip)
     
     #修改前显示一下
     plist = '\n'.join(ipurl_list)
@@ -49,8 +50,10 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
             continue
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
         if 'hk.txt' in ipurl_list[i] or 'tw.txt' in ipurl_list[i] or 'cn.txt' in ipurl_list[i]:
+            #print(f'原ip = {ip}')
             for goodip in allip:
                 if '#HK' in goodip and '======' in goodip:
+                    print(f'新ip = {ip}')
                     use_ip = re.split(r'#HK',goodip)
                     ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                     #print(f'use_ip[0] = {use_ip[0]}')
@@ -166,7 +169,7 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
 
 #更新proxyip_good.txt
 def update_goodproxyip(GOOD_PROXYIP):
-    with open(f'{PATH}proxyip.txt', 'r', encoding='utf-8') as f:
+    with open(PROXYIP, 'r', encoding='utf-8') as f:
         proxyip_all = f.read()
     proxyip_list = re.split(r'\n+',proxyip_all)
     #print('\n'.join(proxyip_list))
@@ -230,5 +233,5 @@ if "__name__==__main__":#主程序开始
     #更新proxyip_good.txt到ipUrl.txt
     up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP)
     #用于自己测速IP时使用
-    up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
+    #up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
     
