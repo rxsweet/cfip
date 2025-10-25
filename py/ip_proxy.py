@@ -50,55 +50,55 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
         ip = re.findall(r'@(.*?):443',ipurl_list[i])
         if 'hk.txt' in ipurl_list[i] or 'tw.txt' in ipurl_list[i] or 'cn.txt' in ipurl_list[i]:
             for goodip in allip:
-                if '#hk' in goodip and '======' in goodip:
-                    use_ip = re.split(r'#hk',goodip)
+                if '#HK' in goodip and '======' in goodip:
+                    use_ip = re.split(r'#HK',goodip)
                     ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                     #print(f'use_ip[0] = {use_ip[0]}')
                     #print(f"ipurl_list[i] = {ipurl_list[i]}")
                     break
         elif 'sg.txt' in ipurl_list[i]:
             for goodip in allip:
-                if '#sg' in goodip and '======' in goodip:
-                    use_ip = re.split(r'#sg',goodip)
+                if '#SG' in goodip and '======' in goodip:
+                    use_ip = re.split(r'#SG',goodip)
                     ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                     break
         elif 'jp.txt' in ipurl_list[i]:
-            if any('#jp' in item for item in allip):
+            if any('#JP' in item for item in allip):
                 for goodip in allip:
-                    if '#jp' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#jp',goodip)
+                    if '#JP' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#JP',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
             else:
                 for goodip in allip:
-                    if '#sg' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#sg',goodip)
+                    if '#SG' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#SG',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
         elif 'kr.txt' in ipurl_list[i]:
-            if any('#kr' in item for item in allip):
+            if any('#KR' in item for item in allip):
                 for goodip in allip:
-                    if '#kr' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#kr',goodip)
+                    if '#KR' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#KR',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
             else:
                 for goodip in allip:
-                    if '#hk' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#hk',goodip)
+                    if '#JP' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#JP',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
         elif 'us.txt' in ipurl_list[i]:
-            if any('#us' in item for item in allip):
+            if any('#US' in item for item in allip):
                 for goodip in allip:
-                    if '#us' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#us',goodip)
+                    if '#US' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#US',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
             else:
                 for goodip in allip:
-                    if '#sg' in goodip and '======' in goodip:
-                        use_ip = re.split(r'#sg',goodip)
+                    if '#SG' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#SG',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
         #下面这段代码是如果原IP在新good中就不改了（现用上面的直接改成新测速的proxyip）
