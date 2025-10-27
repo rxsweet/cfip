@@ -34,6 +34,12 @@ async def main():
     goodips = []
     for ipraw, data in results:
         if data.get('success', '') == 'True':
+            print('1111')
+            print(ipraw)
+            goodips.append(ipraw)
+        if data.get('success', '') == True:
+            print('2222')
+            print(ipraw)
             goodips.append(ipraw)
     goodips_str = '\n'.join(goodips)
     with open(OUTPUT_GOOD, 'w', encoding='utf-8') as f:
