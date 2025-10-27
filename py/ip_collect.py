@@ -191,7 +191,7 @@ def ip_list_rm(urlList):#列表去重
         if repeat > 0:
             #判断有#号备注，再添加
             if '#' in urlList[begin]:
-            urlList[begin]= urlList[begin] + '_'+ str(repeat)
+                urlList[begin]= urlList[begin] + '_'+ str(repeat)
         begin += 1
     print(f'重复数量 {rm}')
     print(f'剩余总数 {str(len(urlList))}\n-----去重结束-----')
