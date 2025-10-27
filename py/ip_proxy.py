@@ -7,7 +7,7 @@ import json
 PATH = './'
 PROXYIP = f'{PATH}proxyip.txt'
 GOOD_PROXYIP = f'{PATH}proxyip_good.txt'
-IPURL = './ipUrl.txt'
+IPURL = './ipurl.txt'
 #用于自己测速IP时使用
 IPURL_TESTSPEED = f'{PATH}ip/ipurl.txt'
 
@@ -28,9 +28,9 @@ def get_address(ip):#得到IP归属地
         pass
         return '未知'
 
-#更新proxyip_good.txt到ipUrl.txt
+#更新proxyip_good.txt到ipurl.txt
 def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
-    #oper ipUrl.txt
+    #oper ipurl.txt
     with open(IPURL, 'r', encoding='utf-8') as f:
         ipurl_all = f.read()
     ipurl_list = re.split(r'\n+',ipurl_all)
@@ -230,7 +230,7 @@ def update_goodproxyip(GOOD_PROXYIP):
 if "__name__==__main__":#主程序开始
     #更新proxyip_good.txt
     update_goodproxyip(GOOD_PROXYIP)
-    #更新proxyip_good.txt到ipUrl.txt
+    #更新proxyip_good.txt到ipurl.txt
     up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP)
     #用于自己测速IP时使用
     up_goodip_to_ipUrl(IPURL_TESTSPEED,GOOD_PROXYIP)
