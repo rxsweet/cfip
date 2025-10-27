@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import asyncio, aiohttp, csv
+import asyncio, aiohttp, csv, re
 
 #INPUT = './ip/port443.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
 INPUT = './ip/allip.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
