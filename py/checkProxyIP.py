@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import asyncio, aiohttp, csv
 
-INPUT = './ip/port443.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
+#INPUT = './ip/port443.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
+INPUT = './ip/allip.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
 OUTPUT = './ip/results_async.csv'  # 输出文件路径
 OUTPUT_GOOD = './ip/goodproxyip.txt'  # 输出文件路径
 CONCURRENCY = 200  # 控制并发请求数
@@ -9,8 +10,11 @@ TIMEOUT = 10  # 设置超时时间
 URL = 'https://check.proxyip.cmliussss.net/check?proxyip={}'  # 请求的 URL
 
 async def fetch(session, ipraw, sem):
-    if ':' not in ipraw:
-        ipraw = ipraw + ':443'  # 如果没有端口，默认加上 :443
+    #if ':' not in ipraw:
+        #ipraw = ipraw + ':443'  # 如果没有端口，默认加上 :443
+    if '#' in ipraw:
+        use_ip = re.split(r'#',ipraw)
+        ipraw = use_ip[0]
     async with sem:
         try:
             async with session.get(URL.format(ipraw), timeout=TIMEOUT) as r:
@@ -33,12 +37,9 @@ async def main():
     
     goodips = []
     for ipraw, data in results:
-        if data.get('success', '') == 'True':
-            print('1111')
-            print(ipraw)
-            goodips.append(ipraw)
+        #只收集可用的
         if data.get('success', '') == True:
-            print('2222')
+            #print('2222')
             print(ipraw)
             goodips.append(ipraw)
     goodips_str = '\n'.join(goodips)
