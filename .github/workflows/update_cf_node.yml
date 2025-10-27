@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - ipUrl.txt
+      - ipurl.txt
       - all.txt
   workflow_dispatch:
   workflow_run:
