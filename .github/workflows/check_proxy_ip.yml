@@ -1,4 +1,4 @@
-name: checkProxyIP
+name: check_proxy_ip
 # 触发条件
 on:
   workflow_dispatch:
