@@ -200,6 +200,7 @@ def update_goodproxyip(GOOD_PROXYIP):
     sgip = []
     jpip = []
     krip = []
+    usip = []
     other = []
     for ip in newlist:
         if '#hk' in ip or '#tw' in ip or 'cn' in ip or '#HK' in ip or '#TW' in ip or 'CN' in ip :
@@ -210,6 +211,8 @@ def update_goodproxyip(GOOD_PROXYIP):
             jpip.append(ip)
         elif '#kr' in ip or '#KR' in ip :
             krip.append(ip)
+        elif '#us' in ip or '#US' in ip :
+            usip.append(ip)
         elif '======' in ip:
             other.append(ip)
     allip = []
@@ -221,6 +224,8 @@ def update_goodproxyip(GOOD_PROXYIP):
     allip.extend(jpip)
     allip.append('#kr')
     allip.extend(krip)
+    allip.append('#us')
+    allip.extend(usip)
     allip.append('#other')
     allip.extend(other)
     allip_str = '\n'.join(allip)
