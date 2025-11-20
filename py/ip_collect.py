@@ -84,7 +84,8 @@ def Exball_saveIP():#整理保存
     allip = re.split(r'\n+',allip)
     #筛选443端口IP
     for ip in allip:
-        if ':443' in ip and '#us' not in ip:
+        #if ':443' in ip and '#us' not in ip:  #去掉us
+        if ':443' in ip:
             #print(ip + 'haha' + '\n')
             ip = ip.split(":")[0]
             port443.append(ip)
@@ -132,7 +133,8 @@ def NiREvil_saveIP():#整理保存
     allip = re.split(r'\n+',allip)
     #筛选443端口IP
     for ip in allip:
-        if ':443' in ip and '#us' not in ip:
+        #if ':443' in ip and '#us' not in ip:  #去掉us
+        if ':443' in ip:
             #print(ip + 'haha' + '\n')
             ip = ip.split(":")[0]
             port443.append(ip)
