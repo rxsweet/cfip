@@ -101,7 +101,7 @@ def Exball_saveIP():#整理保存
     #保存us443端口IP
     us443 = '\n'.join(us443)
     with open(f'{Exball_SAVE_PATH}us443.txt', 'w', encoding='utf-8') as f:
-        f.write(port443)
+        f.write(us443)
     print(f'save us443.txt 完成！')
 
 #get ip: https://github.com/NiREvil
@@ -158,7 +158,7 @@ def NiREvil_saveIP():#整理保存
     #保存us443端口IP
     us443 = '\n'.join(us443)
     with open(f'{NiREvil_SAVE_PATH}us443.txt', 'w', encoding='utf-8') as f:
-        f.write(port443)
+        f.write(us443)
     print(f'save us443.txt 完成！')
         
 def getContent(url):#获取网站的内容，将获取的内容返回
