@@ -50,7 +50,6 @@ def Exball_saveIP():#整理保存
         print("exball ip collect Error!")
         return
     allip = []
-    port443 = []
     for key,value in configList.items():
         #保存区域
         try:
@@ -83,17 +82,27 @@ def Exball_saveIP():#整理保存
     
     allip = re.split(r'\n+',allip)
     #筛选443端口IP
+    port443 = []
+    us443 = []
     for ip in allip:
-        #if ':443' in ip and '#us' not in ip:  #去掉us
         if ':443' in ip:
-            #print(ip + 'haha' + '\n')
-            ip = ip.split(":")[0]
-            port443.append(ip)
+            if '#us' in ip:  #筛选us
+                ip = ip.split(":")[0]
+                us443.append(ip)
+            else:
+                ip = ip.split(":")[0]
+                port443.append(ip)
+
     #保存443端口IP
     port443 = '\n'.join(port443)
     with open(f'{Exball_SAVE_PATH}port443.txt', 'w', encoding='utf-8') as f:
         f.write(port443)
     print(f'save port443.txt 完成！')
+    #保存us443端口IP
+    us443 = '\n'.join(us443)
+    with open(f'{Exball_SAVE_PATH}us443.txt', 'w', encoding='utf-8') as f:
+        f.write(port443)
+    print(f'save us443.txt 完成！')
 
 #get ip: https://github.com/NiREvil
 def NiREvil_saveIP():#整理保存
@@ -106,7 +115,6 @@ def NiREvil_saveIP():#整理保存
         print("NiREvil ip collect Error!")
         return
     allip = []
-    port443 = []
     for key,value in configList.items():
         #保存区域
         try:
@@ -132,18 +140,26 @@ def NiREvil_saveIP():#整理保存
     
     allip = re.split(r'\n+',allip)
     #筛选443端口IP
+    port443 = []
+    us443 = []
     for ip in allip:
-        #if ':443' in ip and '#us' not in ip:  #去掉us
         if ':443' in ip:
-            #print(ip + 'haha' + '\n')
-            ip = ip.split(":")[0]
-            port443.append(ip)
+            if '#us' in ip:  #筛选us
+                ip = ip.split(":")[0]
+                us443.append(ip)
+            else:
+                ip = ip.split(":")[0]
+                port443.append(ip)
     #保存443端口IP
     port443 = '\n'.join(port443)
     with open(f'{NiREvil_SAVE_PATH}port443.txt', 'w', encoding='utf-8') as f:
         f.write(port443)
     print(f'save port443.txt 完成！')
-
+    #保存us443端口IP
+    us443 = '\n'.join(us443)
+    with open(f'{NiREvil_SAVE_PATH}us443.txt', 'w', encoding='utf-8') as f:
+        f.write(port443)
+    print(f'save us443.txt 完成！')
         
 def getContent(url):#获取网站的内容，将获取的内容返回
     headers={
