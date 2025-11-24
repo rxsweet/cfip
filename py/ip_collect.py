@@ -227,6 +227,7 @@ def mergeIP():
     'sg':[],
     'us':[],
     'port443':[],
+    'us443':[],
     }
     for key,value in ipfiles.items():
         try:
