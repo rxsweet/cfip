@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import asyncio, aiohttp, csv, re
 
-INPUT = './ip/port443.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
-#INPUT = './ip/allip.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
+#INPUT = './ip/port443.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
+INPUT = './ip/allip.txt'  # 输入文件路径，假设 IP 地址都在 ip.txt 中
 OUTPUT = './ip/results_async.csv'  # 输出文件路径
 OUTPUT_GOOD = './ip/goodproxyip.txt'  # 输出文件路径
 CONCURRENCY = 200  # 控制并发请求数
