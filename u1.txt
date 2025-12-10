@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/domains.txt@8.212.12.98:443
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/domains.txt@8.219.97.248:443
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/domains.txt@152.67.203.34:443
+https://raw.githubusercontent.com/rxsweet/cfip/refs/heads/main/domains.txt@150.230.204.132:443
