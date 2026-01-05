@@ -104,6 +104,19 @@ def up_goodip_to_ipUrl(IPURL,GOOD_PROXYIP):
                         use_ip = re.split(r'#SG',goodip)
                         ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
                         break
+        elif 'ca.txt' in ipurl_list[i]:
+            if any('#CA' in item for item in allip):
+                for goodip in allip:
+                    if '#CA' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#CA',goodip)
+                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                        break
+            else:
+                for goodip in allip:
+                    if '#US' in goodip and '======' in goodip:
+                        use_ip = re.split(r'#US',goodip)
+                        ipurl_list[i] = re.sub(ip[0],use_ip[0],ipurl_list[i])
+                        break
         #下面这段代码是如果原IP在新good中就不改了（现用上面的直接改成新测速的proxyip）
         """
         #print(f'原ip = {ip}')
@@ -201,6 +214,7 @@ def update_goodproxyip(GOOD_PROXYIP):
     jpip = []
     krip = []
     usip = []
+    caip = []
     other = []
     for ip in newlist:
         if '#hk' in ip or '#tw' in ip or 'cn' in ip or '#HK' in ip or '#TW' in ip or 'CN' in ip :
@@ -213,6 +227,8 @@ def update_goodproxyip(GOOD_PROXYIP):
             krip.append(ip)
         elif '#us' in ip or '#US' in ip :
             usip.append(ip)
+        elif '#ca' in ip or '#CA' in ip :
+            caip.append(ip)
         elif '======' in ip:
             other.append(ip)
     allip = []
@@ -226,6 +242,8 @@ def update_goodproxyip(GOOD_PROXYIP):
     allip.extend(krip)
     allip.append('#us')
     allip.extend(usip)
+    allip.append('#ca')
+    allip.extend(caip)
     allip.append('#other')
     allip.extend(other)
     allip_str = '\n'.join(allip)
