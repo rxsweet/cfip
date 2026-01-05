@@ -3,3 +3,4 @@ https://raw.githubusercontent.com/rxsweet/cfip/main/ip/jp.txt@ProxyIP.JP.CMLiuss
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/kr.txt@ProxyIP.KR.CMLiussss.net:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/sg.txt@ProxyIP.SG.CMLiussss.net:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/us.txt@ProxyIP.US.CMLiussss.net:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/ca.txt@ProxyIP.CA.CMLiussss.net:443
