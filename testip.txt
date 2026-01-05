@@ -127,3 +127,46 @@ freeyx.cloudflare88.eu.org:443#PL
 140.238.158.238:443#ca
 155.138.128.135:443#ca
 85.208.108.71:443#ca
+172.105.26.112:2443#ca_1:Akamai Connected Cloud
+172.98.207.58:443#ca_1:ADVANCED KNOWLEDGE NETWORKS
+35.182.226.236:443#ca_1:Amazon.com: Inc.
+35.183.216.163:2053#ca_1:Amazon.com: Inc.
+3.97.173.206:80#ca_1:Amazon.com: Inc.
+35.183.216.163:8443#ca_1:Amazon.com: Inc.
+69.28.83.244:443#ca_1:Atlantic.net: Inc.
+35.182.7.190:443#ca_1:Amazon.com: Inc.
+35.182.7.190:80#ca_1:Amazon.com: Inc.
+89.251.9.4:15466#ca_1:BitCommand LLC
+35.183.163.195:443#ca_1:Amazon.com: Inc.
+69.28.82.253:443#ca_1:Atlantic.net: Inc.
+40.177.65.8:443#ca_1:Amazon.com: Inc.
+35.183.163.195:80#ca_1:Amazon.com: Inc.
+159.203.34.9:4399#ca_1:DigitalOcean: LLC
+159.203.34.9:74#ca_1:DigitalOcean: LLC
+159.203.34.9:443#ca_1:DigitalOcean: LLC
+159.203.34.9:386#ca_1:DigitalOcean: LLC
+159.203.34.9:12306#ca_1:DigitalOcean: LLC
+159.203.34.9:20205#ca_1:DigitalOcean: LLC
+159.203.34.9:32225#ca_1:DigitalOcean: LLC
+38.180.13.8:2053#ca_1:eStruxture Data Centers Inc.
+38.180.13.8:8443#ca_1:eStruxture Data Centers Inc.
+213.255.209.207:443#ca_1:Kamatera: Inc.
+213.255.209.189:443#ca_1:Kamatera: Inc.
+172.93.32.131:23077#ca_1:IT7 Networks Inc
+140.238.158.238:8080#ca_1:Oracle Corporation
+64.21.191.164:443#ca_1:N6 Cloud inc.
+150.230.27.23:16504#ca_1:Oracle Corporation
+192.18.159.164:36545#ca_1:Oracle Corporation
+129.153.60.139:443#ca_1:Oracle Corporation
+40.233.116.225:443#ca_1:Oracle Corporation
+140.238.158.238:443#ca_1:Oracle Corporation
+132.145.97.225:4443#ca_1:Oracle Corporation
+148.113.204.36:2053#ca_1:OVH SAS
+148.113.204.36:8443#ca_1:OVH SAS
+192.99.252.243:2053#ca_1:OVH SAS
+158.69.200.110:443#ca_1:OVH SAS
+51.79.120.221:2053#ca_1:OVH SAS
+148.113.200.194:2053#ca_1:OVH SAS
+148.113.200.194:8443#ca_1:OVH SAS
+209.200.246.130:443#ca_1:Regxa Company for Information Technology Ltd
+91.194.11.78:81#ca_1:TANGRAM CANADA INC.
