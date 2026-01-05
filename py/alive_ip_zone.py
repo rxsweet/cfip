@@ -41,6 +41,7 @@ if "__name__==__main__":#主程序开始
     'kr':[],
     'sg':[],
     'us':[],
+    'ca':[],
     }
     with open(ALIVE, 'r', encoding='utf-8') as f:
         ip_all = f.read()
