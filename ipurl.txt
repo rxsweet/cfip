@@ -3,3 +3,4 @@ https://raw.githubusercontent.com/rxsweet/cfip/main/jp.txt@18.183.158.211:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/kr.txt@52.141.25.42:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/sg.txt@154.19.242.205:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/us.txt@91.149.239.64:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ca.txt@91.149.239.64:443
