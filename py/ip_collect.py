@@ -27,6 +27,7 @@ NiREvil_apiList={
   'sg':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/SG.txt',
   'kr':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/KR.txt',
   'us':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/US.txt',
+  'ca':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/CA.txt',
   }
 exball_apiList={
   'hk':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt',
@@ -35,7 +36,9 @@ exball_apiList={
   'sg':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt',
   'kr':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt',
   'us':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt',
+  'ca':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_CA.txt',
   }
+
 
 
 #get ip: https://github.com/exball
