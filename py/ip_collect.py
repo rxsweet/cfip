@@ -6,6 +6,7 @@ import json
 #保存路径
 NiREvil_SAVE_PATH = './ip/nirevil/'
 Exball_SAVE_PATH = './ip/exball/'
+RX_SAVE_PATH = './ip/rx/'
 #https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/HK.txt
 #https://ghraw.eu.org/6Kmfi6HP/proxy_files/main/HK.txt
 """
@@ -18,6 +19,16 @@ apiList={
   'kr':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/KR.txt',
   'us':'https://raw.githubusercontent.com/6Kmfi6HP/proxy_files/main/US.txt',
   }
+
+exball_apiList={
+  'hk':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt',
+  'tw':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_TW.txt',
+  'jp':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_JP.txt',
+  'sg':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt',
+  'kr':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt',
+  'us':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt',
+  'ca':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_CA.txt',
+  }
 """
 NiREvil_apiList={
   'hk':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/HK.txt',
@@ -29,18 +40,20 @@ NiREvil_apiList={
   'us':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/US.txt',
   'ca':'https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/CA.txt',
   }
-exball_apiList={
-  'hk':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt',
-  'tw':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_TW.txt',
-  'jp':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_JP.txt',
-  'sg':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt',
-  'kr':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt',
-  'us':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt',
-  'ca':'https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/proxy_list/proxyList_CA.txt',
+
+rx_apiList={
+  'hk':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt',
+  'tw':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_TW.txt',
+  'jp':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_JP.txt',
+  'sg':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt',
+  'kr':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt',
+  'us':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt',
+  'ca':'https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_CA.txt',
   }
 
 
 
+"""
 #get ip: https://github.com/exball
 def Exball_saveIP():#整理保存
     try:
@@ -104,6 +117,74 @@ def Exball_saveIP():#整理保存
     #保存us443端口IP
     us443 = '\n'.join(us443)
     with open(f'{Exball_SAVE_PATH}us443.txt', 'w', encoding='utf-8') as f:
+        f.write(us443)
+    print(f'save us443.txt 完成！')
+
+"""
+
+#get ip: https://github.com/rxsweet
+def rx_saveIP():#整理保存
+    try:
+        configList = fetchUrlContent(rx_apiList)
+        if not configList:
+            print("failed: rx no ip was collected! ")
+            return
+
+    except:
+        print("rx ip collect Error!")
+        return
+    allip = []
+    for key,value in configList.items():
+        #保存区域
+        try:
+            #添加区域标注
+            new_list = []
+            ip_list = re.split(r'\n+',value)
+            for ip in ip_list:
+                ipinfo = ip.split(',')
+                ipaddr = ipinfo[0]
+                port   = ipinfo[1]
+                country= ipinfo[2]
+                new_list.append(ipaddr+':'+port+'#'+key+'_'+'rx')
+            
+            new_ip_list = '\n'.join(new_list)
+            #print(new_ip_list)
+            with open(f'{RX_SAVE_PATH}{key}.txt', 'w', encoding='utf-8') as f:
+                f.write(new_ip_list)
+            print(f'save {key}.txt 完成！')
+            allip.append(new_ip_list)
+        except requests.exceptions.RequestException as e:  
+            #print(e)
+            print(F'获取{key}写入错误!')
+            pass
+
+    #将IP合并保存
+    allip = '\n'.join(allip)
+    with open(f'{RX_SAVE_PATH}allip.txt', 'w', encoding='utf-8') as f:
+        f.write(allip)
+    print(f'save allip.txt 完成！')
+    
+    allip = re.split(r'\n+',allip)
+    #筛选443端口IP
+    port443 = []
+    us443 = []
+    for ip in allip:
+        if ':443' in ip:
+            if '#us' in ip:  #筛选us
+                ip = ip.split(":")[0]
+                us443.append(ip)
+            else:
+                ip = ip.split(":")[0]
+                port443.append(ip)
+
+    #保存443端口IP
+    port443 = '\n'.join(port443)
+    with open(f'{RX_SAVE_PATH}port443.txt', 'w', encoding='utf-8') as f:
+        f.write(port443)
+    print(f'save port443.txt 完成！')
+    #保存us443端口IP
+    us443 = '\n'.join(us443)
+    with open(f'{RX_SAVE_PATH}us443.txt', 'w', encoding='utf-8') as f:
         f.write(us443)
     print(f'save us443.txt 完成！')
 
@@ -237,12 +318,16 @@ def mergeIP():
         try:
             with open(f'{NiREvil_SAVE_PATH}{key}.txt', 'r', encoding='utf-8') as f:
                 content1 = f.read()
-            with open(f'{Exball_SAVE_PATH}{key}.txt', 'r', encoding='utf-8') as f:
+            with open(f'{RX_SAVE_PATH}{key}.txt', 'r', encoding='utf-8') as f:
                 content2 = f.read()
+            #with open(f'{Exball_SAVE_PATH}{key}.txt', 'r', encoding='utf-8') as f:
+                #content3 = f.read()
             ip_list = re.split(r'\n',content1)
             value.extend(ip_list) 
             ip_list = re.split(r'\n',content2)
             value.extend(ip_list)
+            #ip_list = re.split(r'\n',content3)
+            #value.extend(ip_list)
             print(f'{key}.txt准备去重:')
             value = ip_list_rm(value)
             ipall = '\n'.join(value)
@@ -254,5 +339,6 @@ def mergeIP():
 
 if "__name__==__main__":#主程序开始
     NiREvil_saveIP()
-    Exball_saveIP()
+    rx_saveIP()
+    #Exball_saveIP()
     mergeIP()
