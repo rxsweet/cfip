@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/testip.txt@91.149.239.64:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/jp.txtt@13.230.34.30:443
