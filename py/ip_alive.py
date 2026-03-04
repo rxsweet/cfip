@@ -1,7 +1,9 @@
 import re
+import os
 import requests
+from datetime import datetime
 
-PATH = './ip/'
+PATH = os.path.dirname(os.path.abspath(__file__))
 
 
 def getUrlContent(url):  
@@ -32,7 +34,7 @@ if "__name__==__main__":#主程序开始
         #ip_all = f.read()
     ip_list = re.split(r'\n+',ip_all)
 
-    with open(f'{PATH}node.txt', 'r', encoding='utf-8') as f:
+    with open(f'{PATH}/node.txt', 'r', encoding='utf-8') as f:
         ip_node_all = f.read()
     ip_node_list = re.split(r'\n+',ip_node_all)
     
@@ -50,8 +52,9 @@ if "__name__==__main__":#主程序开始
                 print(ip)
                 continue
     #保存
+    nowtime = datetime.today().strftime('%Y%m%d')
     alive_ip_str = '\n'.join(alive_ip)
-    with open(f'{PATH}aliveip.txt', 'w', encoding='utf-8') as f:
+    with open(f'{PATH}/aliveip/aliveip_{nowtime}.txt', 'w', encoding='utf-8') as f:
         f.write(alive_ip_str)
 
     #暂时不需要分区了
