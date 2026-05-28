@@ -35,3 +35,36 @@
 59.6.239.208:12203#kr_NiREvil
 64.110.70.205:23022#kr_NiREvil_1
 64.110.75.145:443#kr_NiREvil
+106.245.63.110:50001#kr:LG DACOM Corporation
+112.166.95.230:50001#kr:Korea Telecom
+123.111.169.70:443#kr:SK Broadband Co Ltd
+129.154.212.17:20180#kr:Oracle Corporation
+130.162.130.105:443#kr:Oracle Public Cloud
+131.186.24.124:587#kr:Oracle Public Cloud
+132.145.84.148:39567#kr:Oracle Public Cloud
+132.226.21.116:6056#kr:Oracle Public Cloud
+132.226.23.92:22053#kr:Oracle Public Cloud
+140.238.2.81:587#kr:Oracle Public Cloud
+140.238.5.75:13644#kr:Oracle Public Cloud
+144.24.73.232:443#kr:Oracle Corp UK Ltd
+144.24.87.69:50001#kr:Oracle Corporation
+146.56.140.79:20309#kr:Cloudflare Inc
+146.56.140.79:22561#kr:Cloudflare London LLC
+146.56.140.79:44699#kr:Cloudflare London LLC
+146.56.42.21:7777#kr:Cloudflare London LLC
+146.56.99.22:20443#kr:Oracle Corporation  Global software solutions  California  USA
+146.56.99.255:56789#kr:Oracle Corporation  Global software solutions  California  USA
+152.67.209.237:22053#kr:Oracle Public Cloud
+152.67.211.114:58337#kr:Oracle Public Cloud
+152.69.229.175:22558#kr:Oracle Corporation
+152.70.236.195:30001#kr:Oracle Corporation
+158.180.69.78:12198#kr:Cloudflare Inc
+158.180.72.60:443#kr:oracle
+158.247.250.157:81#kr:The Constant Company LLC
+175.202.135.114:12427#kr:Korea Telecom
+192.46.231.158:443#kr:Akamai Connected Cloud  Linode
+193.123.253.225:4333#kr:Oracle Corporation
+211.48.77.114:12312#kr:Korea Telecom
+217.142.138.61:37914#kr:Oracle Svenska AB
+59.6.239.208:12203#kr:KT
+64.110.70.205:23022#kr:Oracle Corporation
