@@ -16,7 +16,6 @@ urls = [
     "https://raw.githubusercontent.com/mdsdtech/chonky-orange-cat/refs/heads/main/Orange/alivecat.txt",
     "https://raw.githubusercontent.com/afrcloud07/ListProxy/refs/heads/main/proxyip.txt",
     "https://raw.githubusercontent.com/papapapapdelesia/Emilia/refs/heads/main/Data/alive.txt",
-    "https://raw.githubusercontent.com/SherlyKinan/proxy-check/refs/heads/main/dead.txt",
     "https://raw.githubusercontent.com/SherlyKinan/proxy-check/refs/heads/main/active.txt",
 ]
 """
