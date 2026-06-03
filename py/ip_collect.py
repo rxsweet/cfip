@@ -310,7 +310,6 @@ def mergeIP():
     'kr':[],
     'sg':[],
     'us':[],
-    'ca':[],
     'port443':[],
     'us443':[],
     }
@@ -341,4 +340,4 @@ if "__name__==__main__":#主程序开始
     NiREvil_saveIP()
     #rx_saveIP()
     #Exball_saveIP()
-    #mergeIP()
+    mergeIP()
