@@ -1,5 +1,5 @@
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/hk.txt@103.74.192.228:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/jp.txt@161.33.190.243:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/jp.txt@115.163.106.137:443
 https://raw.githubusercontent.com/rxsweet/cfip/main/ip/kr.txt@123.111.169.70:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/sg.txt@8.219.195.31:443
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/us.txt@38.77.187.51:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/sg.txt@43.156.181.203:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/us.txt@23.141.52.169:443
