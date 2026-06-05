@@ -1,14 +1,10 @@
-import os
-import re
-import requests
+import os,re,requests
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor,as_completed
 
-# ======================
-# 配置
-# ======================
-
-URLS = [
+# ========= 配置 =========
+"""
+URLS=[
     "https://raw.githubusercontent.com/FoolVPN-ID/Nautica/refs/heads/main/proxyList.txt",
     "https://raw.githubusercontent.com/mdsdtech/chonky-orange-cat/refs/heads/main/Orange/alivecat.txt",
     "https://raw.githubusercontent.com/afrcloud07/ListProxy/refs/heads/main/proxyip.txt",
@@ -21,197 +17,242 @@ URLS = [
     "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt",
     "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt",
     "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt",
+    "https://zip.cm.edu.kg/all.txt"
+]
+"""
+URLS = [
+    "https://ghraw.eu.org/FoolVPN-ID/Nautica/refs/heads/main/proxyList.txt",
+    "https://ghraw.eu.org/mdsdtech/chonky-orange-cat/refs/heads/main/Orange/alivecat.txt",
+    "https://ghraw.eu.org/afrcloud07/ListProxy/refs/heads/main/proxyip.txt",
+    "https://ghraw.eu.org/papapapapdelesia/Emilia/refs/heads/main/Data/alive.txt",
+    "https://ghraw.eu.org/SherlyKinan/proxy-check/refs/heads/main/active.txt",
+    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
+    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt",
+    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_JP.txt",
+    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt",
+    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt",
+    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt",
+    "https://ghraw.eu.org/NiREvil/vless/refs/heads/main/sub/country_proxies/03_proxies.txt",
     "https://zip.cm.edu.kg/all.txt",
 ]
 
-TARGET_COUNTRIES = {"US", "JP", "KR", "HK", "SG"}
 
-SAVE_DIR = "ip"
-os.makedirs(SAVE_DIR, exist_ok=True)
+TARGET={"US","JP","KR","HK","SG"}
+SAVE_DIR="ip"
 
-# ======================
-# 缓存
-# ======================
+DOWNLOAD_THREADS=12
+GEO_THREADS=50
 
-country_cache = {}
-lock_cache = set()
+os.makedirs(SAVE_DIR,exist_ok=True)
 
-ip_data = {}  # ip -> {country, port}
+# ========= Session =========
 
-# ======================
-# GeoJS 查询
-# ======================
+session=requests.Session()
 
-def get_country(ip):
-    if ip in country_cache:
-        return country_cache[ip]
+# ========= 正则 =========
 
-    try:
-        r = requests.get(
-            f"https://get.geojs.io/v1/ip/geo/{ip}.json",
-            timeout=10
-        )
-        country = r.json().get("country_code", "").upper()
-    except:
-        country = ""
+R1=re.compile(r"^(\d+\.\d+\.\d+\.\d+),(\d+),([A-Z]{2})")
+R2=re.compile(r"^(\d+\.\d+\.\d+\.\d+):(\d+)#([A-Z]{2})")
+R3=re.compile(r"^(\d+\.\d+\.\d+\.\d+)(?:\s+(\d+))?$")
 
-    country_cache[ip] = country
-    return country
+# ========= 工具 =========
 
-# ======================
-# 解析函数
-# ======================
-
-re_format1 = re.compile(r"^(\d+\.\d+\.\d+\.\d+),(\d+),([A-Z]{2})")
-re_format2 = re.compile(r"^(\d+\.\d+\.\d+\.\d+):(\d+)#([A-Z]{2})")
-re_format3 = re.compile(r"^(\d+\.\d+\.\d+\.\d+)(?:\s+(\d+))?$")
-
-def parse_line(line):
-    line = line.strip()
-    if not line:
-        return []
-
-    results = []
-
-    # format1
-    m = re_format1.match(line)
-    if m:
-        ip, port, country = m.groups()
-        results.append((ip, int(port), country))
-        return results
-
-    # format2
-    m = re_format2.match(line)
-    if m:
-        ip, port, country = m.groups()
-        results.append((ip, int(port), country))
-        return results
-
-    # format3
-    m = re_format3.match(line)
-    if m:
-        ip, port = m.groups()
-        port = int(port) if port else 443
-        country = get_country(ip)
-        if country:
-            results.append((ip, port, country))
-        return results
-
-    return []
-
-# ======================
-# 下载单个源
-# ======================
+def save(name,data):
+    with open(
+        os.path.join(SAVE_DIR,name),
+        "w",
+        encoding="utf-8"
+    ) as f:
+        f.write("\n".join(data))
 
 def fetch(url):
     try:
-        r = requests.get(url, timeout=30)
-        return r.text.splitlines()
+        return session.get(url,timeout=30).text.splitlines()
     except:
         return []
 
-# ======================
-# 主处理
-# ======================
+def query_country(ip):
+    try:
+        c=session.get(
+            f"https://get.geojs.io/v1/ip/geo/{ip}.json",
+            timeout=8
+        ).json().get("country_code","").upper()
+    except:
+        c=""
+    return ip,c
+
+# ========= 主程序 =========
 
 def main():
+
     print("下载数据中...")
 
-    lines = []
-    with ThreadPoolExecutor(max_workers=10) as pool:
-        for res in pool.map(fetch, URLS):
-            lines.extend(res)
+    lines=[]
+
+    with ThreadPoolExecutor(DOWNLOAD_THREADS) as pool:
+        for data in pool.map(fetch,URLS):
+            lines.extend(data)
 
     print(f"总行数: {len(lines)}")
 
-    # 解析
+    ip_data={}
+    need_query={}
+    query_ips=set()
+
+    # ========= 第一轮解析 =========
+
     for line in lines:
-        for ip, port, country in parse_line(line):
 
-            if country not in TARGET_COUNTRIES:
-                continue
+        line=line.strip()
+        if not line:
+            continue
 
-            # 去重 + 443优先
-            if ip in ip_data:
-                old = ip_data[ip]
+        m=R1.match(line)
+        if m:
+            ip,port,country=m.groups()
+            ip_data[ip]=(int(port),country.upper())
+            continue
 
-                if old["port"] != 443 and port == 443:
-                    ip_data[ip] = {"port": port, "country": country}
-                continue
+        m=R2.match(line)
+        if m:
+            ip,port,country=m.groups()
+            ip_data[ip]=(int(port),country.upper())
+            continue
 
-            ip_data[ip] = {"port": port, "country": country}
+        m=R3.match(line)
+        if m:
+            ip,port=m.groups()
+            port=int(port or 443)
 
-    # ======================
-    # 分类
-    # ======================
+            old=need_query.get(ip)
 
-    by_country = defaultdict(list)
-    port443_non_us = []
-    us443 = []
+            if not old:
+                need_query[ip]=port
+            elif old!=443 and port==443:
+                need_query[ip]=443
 
-    for ip, info in ip_data.items():
-        country = info["country"].lower()
-        port = info["port"]
+            query_ips.add(ip)
 
-        line = f"{ip}:{port}#{country}"
-        by_country[country].append(line)
+    # ========= 查询归属 =========
 
-        # 443分类
-        if port == 443:
-            if country == "us":
+    total_query=len(query_ips)
+
+    print(f"需要查询归属地IP: {total_query}")
+
+    country_cache={}
+    done=0
+
+    if total_query:
+
+        with ThreadPoolExecutor(GEO_THREADS) as pool:
+
+            futures=[
+                pool.submit(query_country,ip)
+                for ip in query_ips
+            ]
+
+            for future in as_completed(futures):
+
+                ip,country=future.result()
+                country_cache[ip]=country
+
+                done+=1
+
+                if (
+                    done<=20
+                    or done%100==0
+                    or done==total_query
+                ):
+                    pct=done*100/total_query
+
+                    print(
+                        f"\r归属查询: "
+                        f"{done}/{total_query} "
+                        f"({pct:.1f}%)",
+                        end="",
+                        flush=True
+                    )
+
+        print()
+
+    # ========= 合并数据 =========
+
+    for ip,port in need_query.items():
+
+        country=country_cache.get(ip,"")
+
+        if not country:
+            continue
+
+        old=ip_data.get(ip)
+
+        if old:
+            if old[0]!=443 and port==443:
+                ip_data[ip]=(port,country)
+        else:
+            ip_data[ip]=(port,country)
+
+    # ========= 过滤国家 =========
+
+    raw=defaultdict(list)
+    us443=[]
+    nonus443=[]
+
+    for ip,(port,country) in ip_data.items():
+
+        if country not in TARGET:
+            continue
+
+        raw[country].append((ip,port))
+
+        if port==443:
+            if country=="US":
                 us443.append(ip)
             else:
-                port443_non_us.append(ip)
+                nonus443.append(ip)
 
-    # ======================
-    # 保存国家文件
-    # ======================
+    # ========= 输出 =========
 
-    for c in sorted(TARGET_COUNTRIES):
-        c_low = c.lower()
-        path = os.path.join(SAVE_DIR, f"{c_low}.txt")
+    allip=[]
+    total=0
 
-        with open(path, "w", encoding="utf-8") as f:
-            f.write("\n".join(sorted(by_country[c_low])))
+    for country in sorted(TARGET):
 
-        print(f"{c_low}.txt -> {len(by_country[c_low])}")
+        items=sorted(
+            raw[country],
+            key=lambda x:(
+                tuple(map(int,x[0].split("."))),
+                x[1]
+            )
+        )
 
-    # ======================
-    # allip.txt
-    # ======================
+        result=[
+            f"{ip}:{port}#{country}_{i}"
+            for i,(ip,port) in enumerate(items,1)
+        ]
 
-    all_list = []
-    for c in sorted(TARGET_COUNTRIES):
-        c_low = c.lower()
-        all_list.extend(sorted(by_country[c_low]))
+        save(
+            f"{country.lower()}.txt",
+            result
+        )
 
-    with open(os.path.join(SAVE_DIR, "allip.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(all_list))
+        allip.extend(result)
+        total+=len(result)
 
-    # ======================
-    # port443 非US
-    # ======================
+        print(f"{country}: {len(result)}")
 
-    with open(os.path.join(SAVE_DIR, "port443.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(sorted(set(port443_non_us))))
+    save("allip.txt",allip)
+    save("us443.txt",sorted(set(us443)))
+    save("port443.txt",sorted(set(nonus443)))
 
-    # ======================
-    # US 443
-    # ======================
+    # ========= 统计 =========
 
-    with open(os.path.join(SAVE_DIR, "us443.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(sorted(set(us443))))
-
-    # ======================
-    # 统计
-    # ======================
-
-    print("\n完成统计:")
-    print(f"唯一IP: {len(ip_data)}")
-    print(f"US443: {len(us443)}")
-    print(f"非US 443: {len(port443_non_us)}")
+    print("-"*40)
+    print(f"唯一IP: {total}")
+    print(f"US443: {len(set(us443))}")
+    print(f"非US443: {len(set(nonus443))}")
+    print(f"查询归属IP: {total_query}")
     print(f"输出目录: {os.path.abspath(SAVE_DIR)}")
 
-
-if __name__ == "__main__":
+if __name__=="__main__":
     main()
