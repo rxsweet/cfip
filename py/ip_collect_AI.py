@@ -3,7 +3,7 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor,as_completed
 
 # ========= 配置 =========
-"""
+
 URLS=[
     "https://raw.githubusercontent.com/FoolVPN-ID/Nautica/refs/heads/main/proxyList.txt",
     "https://raw.githubusercontent.com/mdsdtech/chonky-orange-cat/refs/heads/main/Orange/alivecat.txt",
@@ -35,7 +35,7 @@ URLS = [
     "https://ghraw.eu.org/NiREvil/vless/refs/heads/main/sub/country_proxies/03_proxies.txt",
     "https://zip.cm.edu.kg/all.txt",
 ]
-
+"""
 
 TARGET={"US","JP","KR","HK","SG"}
 SAVE_DIR="ip"
