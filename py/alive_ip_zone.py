@@ -36,12 +36,11 @@ def ip_list_rm(urlList):#列表去重
 
 if "__name__==__main__":#主程序开始
     ipfiles = {
-    'hk':[],
-    'jp':[],
-    'kr':[],
-    'sg':[],
-    'us':[],
-    'ca':[],
+    'HK':[],
+    'JP':[],
+    'KR':[],
+    'SG':[],
+    'US':[],
     }
     with open(ALIVE, 'r', encoding='utf-8') as f:
         ip_all = f.read()
@@ -55,7 +54,7 @@ if "__name__==__main__":#主程序开始
                 if 'tw' in ip or 'cn' in ip:
                     value.append(ip)
         ipall = '\n'.join(value)
-        with open(f'{PATH}{key}.txt', 'w', encoding='utf-8') as f:
+        with open(f'{PATH}{key.lower()}.txt', 'w', encoding='utf-8') as f:
             f.write(ipall)
         print(f'可用 {key}.txt 写入完成！\n')
     #保存allIP
