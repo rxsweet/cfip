@@ -50,8 +50,8 @@ if "__name__==__main__":#主程序开始
         for ip in ip_list: 
             if key in ip:
                 value.append(ip)
-            if key == 'hk':
-                if 'tw' in ip or 'cn' in ip:
+            if key == 'HK':
+                if 'TW' in ip:
                     value.append(ip)
         ipall = '\n'.join(value)
         with open(f'{PATH}{key.lower()}.txt', 'w', encoding='utf-8') as f:
