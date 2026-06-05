@@ -12,30 +12,11 @@ URLS=[
     "https://raw.githubusercontent.com/SherlyKinan/proxy-check/refs/heads/main/active.txt",
     "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
     "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/03_proxies.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_JP.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt",
+    "https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
+    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
     "https://zip.cm.edu.kg/all.txt"
 ]
-"""
-URLS = [
-    "https://ghraw.eu.org/FoolVPN-ID/Nautica/refs/heads/main/proxyList.txt",
-    "https://ghraw.eu.org/mdsdtech/chonky-orange-cat/refs/heads/main/Orange/alivecat.txt",
-    "https://ghraw.eu.org/afrcloud07/ListProxy/refs/heads/main/proxyip.txt",
-    "https://ghraw.eu.org/papapapapdelesia/Emilia/refs/heads/main/Data/alive.txt",
-    "https://ghraw.eu.org/SherlyKinan/proxy-check/refs/heads/main/active.txt",
-    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
-    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_HK.txt",
-    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_JP.txt",
-    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_SG.txt",
-    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_KR.txt",
-    "https://ghraw.eu.org/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/proxy_list/proxyList_US.txt",
-    "https://ghraw.eu.org/NiREvil/vless/refs/heads/main/sub/country_proxies/03_proxies.txt",
-    "https://zip.cm.edu.kg/all.txt",
-]
-"""
+
 
 TARGET={"US","JP","KR","HK","SG"}
 SAVE_DIR="ip"
