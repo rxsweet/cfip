@@ -5,16 +5,15 @@ from concurrent.futures import ThreadPoolExecutor,as_completed
 # ========= 配置 =========
 
 URLS=[
-    "https://raw.githubusercontent.com/FoolVPN-ID/Nautica/refs/heads/main/proxyList.txt",
-    "https://raw.githubusercontent.com/mdsdtech/chonky-orange-cat/refs/heads/main/Orange/alivecat.txt",
-    "https://raw.githubusercontent.com/afrcloud07/ListProxy/refs/heads/main/proxyip.txt",
-    "https://raw.githubusercontent.com/papapapapdelesia/Emilia/refs/heads/main/Data/alive.txt",
-    "https://raw.githubusercontent.com/SherlyKinan/proxy-check/refs/heads/main/active.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
-    "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/country_proxies/03_proxies.txt",
-    "https://raw.githubusercontent.com/exball/sing-box-config/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
-    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/refs/heads/Master/proxy-scaner/active-proxy-history.txt",
-    "https://zip.cm.edu.kg/all.txt"
+    "https://raw.githubusercontent.com/FoolVPN-ID/Nautica/main/proxyList.txt",
+    "https://raw.githubusercontent.com/mdsdtech/chonky-orange-cat/main/Orange/alivecat.txt",
+    "https://raw.githubusercontent.com/afrcloud07/ListProxy/main/proxyip.txt",
+    "https://raw.githubusercontent.com/papapapapdelesia/Emilia/main/Data/alive.txt",
+    "https://raw.githubusercontent.com/SherlyKinan/proxy-check/main/active.txt",
+    "https://raw.githubusercontent.com/NiREvil/vless/main/sub/country_proxies/03_proxies.txt",
+    "https://raw.githubusercontent.com/exball/sing-box-config/Master/proxy-scaner/active-proxy-history.txt",
+    "https://raw.githubusercontent.com/rxsweet/scan-proxyip/Master/proxy-scaner/active-proxy-history.txt",
+    #"https://zip.cm.edu.kg/all.txt"
 ]
 
 
