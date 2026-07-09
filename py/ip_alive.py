@@ -34,4 +34,4 @@ if "__name__==__main__":#主程序开始
         f.write("\n".join(result))
     #记录收集个数和存放位置
     print(f"完成，共写入 {len(result)} 条")
-    //print(f"文件：{output_file}")
+    #print(f"文件：{output_file}")
