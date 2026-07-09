@@ -6,8 +6,8 @@ from concurrent.futures import ThreadPoolExecutor
 # ================= 配置 =================
 
 SOURCE_URL = (
-    #"https://ghraw.eu.org/rxsweet/cfip/refs/heads/main/ip/port443.txt"
-    #"https://ghraw.eu.org/rxsweet/cfip/refs/heads/main/ip/us443.txt"
+    #"https://rxx.cc.cd/rxsweet/cfip/refs/heads/main/ip/port443.txt"
+    #"https://rxx.cc.cd/rxsweet/cfip/refs/heads/main/ip/us443.txt"
     "https://ips.1985.de5.net"
 )
 
