@@ -1,4 +1,4 @@
-# ip_count.py   
+# ip_count.py
 import os
 from collections import Counter
 
@@ -11,8 +11,8 @@ ALIVEIP_DIR = os.path.join(BASE_DIR, "aliveip")
 # 输出文件也放在 aliveip 文件夹下
 OUTPUT_FILE = os.path.join(ALIVEIP_DIR, "ip_good.txt")
 
-# 支持的国家/地区前缀（小写）
-COUNTRY_PREFIXES = {"hk", "jp", "kr", "sg", "us", "ca"}
+# 支持的国家/地区前缀（大写）
+COUNTRY_PREFIXES = {"HK", "JP", "KR", "SG", "US"}
 
 def main():
     if not os.path.isdir(ALIVEIP_DIR):
@@ -86,7 +86,7 @@ def main():
             wrote_anything = True
 
         if not wrote_anything:
-            f.write("没有找到出现 2 次及以上的 IP（或没有匹配到 hk/jp/kr/sg/us/ca 标记）\n")
+            f.write("没有找到出现 2 次及以上的 IP（或没有匹配到 HK/JP/KR/SG/US 标记）\n")
 
     total_valid_ips = sum(len(lines) for lines in country_groups.values())
     print(f"统计完成，结果已保存至：{OUTPUT_FILE}")
