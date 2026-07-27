@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/aliveip.txt@211.49.57.179:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/testip.txt@ProxyIP.US.CMLiussss.net:443
