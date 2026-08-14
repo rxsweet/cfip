@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/aliveip.txt@50.228.203.26:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/aliveip.txt@216.36.116.175:443
