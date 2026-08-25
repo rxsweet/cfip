@@ -7,7 +7,7 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 # 自动生成当天日期
 date_str = datetime.now().strftime("%Y%m%d")
 
-input_file  = f'{PATH}/node.txt'
+input_file  = f'{PATH}/node.txt'#node.txt文件和本文件放一起
 output_file = f'{PATH}/aliveip_{date_str}.txt'
 
 if "__name__==__main__":#主程序开始
