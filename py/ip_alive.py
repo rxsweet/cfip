@@ -8,7 +8,7 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 date_str = datetime.now().strftime("%Y%m%d")
 
 input_file  = f'{PATH}/node.txt'
-output_file = f'{PATH}/aliveip/aliveip_{date_str}.txt'
+output_file = f'{PATH}/aliveip_{date_str}.txt'
 
 if "__name__==__main__":#主程序开始
     #收集暂存
