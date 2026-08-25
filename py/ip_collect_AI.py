@@ -8,11 +8,11 @@ URLS=[
     "https://raw.githubusercontent.com/FoolVPN-ID/Nautica/main/proxyList.txt",
     "https://raw.githubusercontent.com/mdsdtech/chonky-orange-cat/main/Orange/alivecat.txt",
     "https://raw.githubusercontent.com/afrcloud07/ListProxy/main/proxyip.txt",
-    "https://raw.githubusercontent.com/papapapapdelesia/Emilia/main/Data/alive.txt",
     "https://raw.githubusercontent.com/SherlyKinan/proxy-check/main/active.txt",
     "https://raw.githubusercontent.com/NiREvil/vless/main/sub/country_proxies/03_proxies.txt",
     "https://raw.githubusercontent.com/exball/sing-box-config/Master/proxy-scaner/active-proxy-history.txt",
     "https://raw.githubusercontent.com/rxsweet/scan-proxyip/Master/proxy-scaner/active-proxy-history.txt",
+    #"https://raw.githubusercontent.com/papapapapdelesia/Emilia/main/Data/alive.txt",
     #"https://zip.cm.edu.kg/all.txt"
 ]
 
