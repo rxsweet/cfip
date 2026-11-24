@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/rxsweet/cfip/main/ip/allip.txt@64.49.28.77:443
+https://raw.githubusercontent.com/rxsweet/cfip/main/ip/allip.txt@50.35.41.6:443
